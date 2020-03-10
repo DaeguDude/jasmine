@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .monitor {
+            width: 500px;
+            height: 400px;
+            border: 1px dotted black;
+            margin: 15px auto;
+        }
+
+        .header {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .string {
+            height: 33.333%;
+            margin: 0 auto;
+            color: white;
+            background-color: brown;
+        }
+
+        .bigger {
+            font-size: large;
+            text-align: center;
+            line-height: 133.3px;
+        }
+
+        .arrow {
+            display: inline-block;
+            background: black;
+            position: relative;
+        }
+
+        .arrow.test_1,
+        .arrow.test_2 {
+            width: 10px;
+            height: 20px;
+        }
+
+        .arrow.test_3,
+        .arrow.test_4 {
+            width: 20px;
+            height: 10px;
+        }
+
+        .arrow:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .arrow.test_1:after,
+        .arrow.test_2:after {
+            border-width: 20px 15px;
+        }
+
+        .arrow.test_3:after,
+        .arrow.test_4:after {
+            border-width: 15px 20px;
+        }
+
+        .arrow.test_1:after {
+            border-color: black transparent transparent transparent;
+            top: 20px;
+            left: -10px;
+        }
+
+        .arrow.test_2:after {
+            border-color: transparent transparent #7d1919 transparent;
+            top: -40px;
+            left: -10px;
+        }
+
+        .arrow.test_3:after {
+            border-color: transparent #7d1919 transparent transparent;
+            top: -10px;
+            left: -40px;
+        }
+
+        .arrow.test_4:after {
+            border-color: transparent transparent transparent #7d1919;
+            top: -10px;
+            left: 20px;
+        }
+
+        #arrow{
+            left: 50%;
+            top : 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to caesar</h1>
+            <p>put in english string</p>
+            <input type="text" id="string" placeholder="EnglishString">
+            <input id="shift" placeholder="put in magic numb">
+            <button id="convertButton">Convert</button>
+        </div>
+        <div id="convertedString" class="monitor">
+            <div class="string bigger" id="unConvertedStringMonitor">
+
+            </div>
+            <div class="string">
+                <span class="arrow test_1" id="arrow"></span>
+            </div>
+            <div class="string bigger" id="convertedStringMonitor">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const convertButton = document.getElementById("convertButton");
+
+    convertButton.addEventListener('click', () => {
+        const string = document.getElementById("string");
+        const shift = document.getElementById("shift");
+        const monitor = document.getElementById("convertedString");
+        if (string.value.length <= 0) {
+            alert("please typing string");
+            string.focus();
+            return;
+        }
+
+        if (shift.value.length <= 0) {
+            alert("please put numb");
+            shift.focus();
+            return;
+        }
+        let convertedString = "";
+
+        for (let i = 0; i < string.value.length; i++) {
+            console.log(string.value[i])
+            let ASCII = string.value.charCodeAt(i)
+            if (ASCII <= 122 && ASCII >= 97) {
+                convertedString += String.fromCharCode(convert(ASCII, shift.value, "downer"));
+            } else if (ASCII <= 90 && ASCII >= 65) {
+                convertedString += String.fromCharCode(convert(ASCII, shift.value, "upper"));
+            } else {
+                convertedString += String.fromCharCode(ASCII);
+            }
+        }
+
+        const convertedStringMonitor = document.getElementById("convertedStringMonitor");
+        const unConvertedStringMonitor = document.getElementById("unConvertedStringMonitor");
+        unConvertedStringMonitor.innerText = string.value;
+        convertedStringMonitor.innerText = convertedString;
+    })
+
+    function convert(ASCII, shift, type) {
+        let shiftedASCII = ASCII + (shift % 25);
+        let calculateShift = (shift % 25);
+        if (type === "upper") {
+            if (shiftedASCII < 65) {
+                shiftedASCII = 91 - (65 - shiftedASCII);
+            } else if (shiftedASCII > 90) {
+                shiftedASCII = 65 + (shiftedASCII - 90)
+            }
+            return shiftedASCII;
+        } else {
+            if (shiftedASCII < 97) {
+                shiftedASCII = 123 - (97 - shiftedASCII);
+            } else if (shiftedASCII > 122) {
+                shiftedASCII = 97 + (shiftedASCII - 122);
+            }
+            return shiftedASCII;
+        }
+    }
+</script>
+
+</html>
