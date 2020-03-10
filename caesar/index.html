@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      카이사르 암호 - Caesar Cipher
+    </div>
+    
+    <div id="user-string-box">
+      <input type="text" id="user-text" value="암호화할 메세지를 입력해주세요!">
+    </div>
+    
+    <div id="shift-box">
+      <input type="text" id="shift" value="암호값 입력">
+    </div>
+    <button type="button" id="encrypt-button">
+        메세지 암호화
+    </button>
+    
+    <div id="encrypted-text"></div>
+    
+  </div> <!-- container -->
+</body>
+
+<!-- Javascript -->
+<script>
+  
+  const caesar = function(string, shift) {
+  return string
+    .split("")
+    .map(char => shiftChar(char, shift))
+    .join("");
+  };
+
+  const codeSet = code => (code < 97 ? 65 : 97);
+
+  const mod = (n, m) => (n % m + m) % m;
+
+  const shiftChar = (char, shift) => {
+    const code = char.charCodeAt();
+
+    if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122)) {
+      return String.fromCharCode(
+        mod(code + shift - codeSet(code), 26) + codeSet(code)
+      );
+    }
+    return char;
+  };
+
+  // 문자열을 정수로 변환시켜줌, 정수가 아닐시 false 반환
+  const strToNum = function(str) {
+    // 문자를 숫자로 바꾼다
+    let strConvertedToNum = Number(str);
+
+    // 정수확인
+    if (Number.isInteger(strConvertedToNum)) {
+      // 정수임
+      return strConvertedToNum;
+    } else {
+      // 정수가 아니라면 false 반환
+      return false;
+    }
+  };
+  
+  
+  let encryptButton = document.getElementById("encrypt-button");
+  
+  encryptButton.addEventListener("click", (e) => {
+    let userText = document.getElementById('user-text').value;
+    let shift = document.getElementById('shift').value;
+    let encryptedText = document.getElementById('encrypted-text');
+    shift = strToNum(shift);
+
+    // shift가 숫자로 정확히 변환되었을 때, 실행을 시작
+    if(typeof shift == 'number') {
+      let encrypted = caesar(userText, shift);
+      encryptedText.innerHTML = encrypted;
+    } else {
+      encryptedText.innerHTML = "정수형 숫자만 입력해주세요!"
+    }
+  });
+
+</script>
+</html>

@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #4EBDAD;
+}
+
+#header {
+  background: #5c5c30;
+  width: 90%;
+  height: 150px;
+  margin: 0 auto;
+  line-height: 150px;
+  font-size: 40px;
+  text-align: center;
+
+}
+
+#container {
+  
+  background: #5c5c30;
+  width: 90%;
+  height: 1000px;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
+}
+
+#user-string-box {
+  
+  width: 800px;
+  height: 100px;
+  margin: auto;
+}
+
+#user-text {
+  width: 100%;
+  height: 100%;
+  background: #363636;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  border: none;
+}
+
+#shift-box {
+  background: #363636;
+  width: 120px;
+  height: 50px;
+  margin: 20px auto;
+}
+
+#shift {
+  width: 100%;
+  height: 100%;
+  background: #363636;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+
+#encrypt-button {
+  display: block;
+  background-color: #6d6d6d; 
+  border: none;
+  color:  #ffffff;
+  width: 200px;
+  height: 100px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 50px auto;
+}
+
+#encrypt-button:active {
+  transform: scale(0.9);
+}
+
+#encrypted-text {
+  background: #363636;
+  color: #ffffff;
+  width: 800px;
+  height: 100px;
+  margin: auto;
+  font-size: 30px;
+  overflow: auto;
+  text-align: center;
+  line-height: 100px;
+}
+
