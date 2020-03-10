@@ -1,3 +1,9 @@
+---
+layout: post
+title:  "시저암호"
+categories: jekyll update
+---
+
 # 카이사르 암호화
 
 [카이사르 암호(Caesar cipher)](https://ko.wikipedia.org/wiki/%EC%B9%B4%EC%9D%B4%EC%82%AC%EB%A5%B4_%EC%95%94%ED%98%B8)
@@ -73,5 +79,23 @@ caesar("Hello World!", 1);
 :주어진 인덱스에 대한 정수형 유니코드 값을 반환
 - [Array.prototype.join()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 :배열의 모든 요소를 연결해 하나의 문자열로 반환
+- [자바스크립트 나머지 연산자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#%EB%82%98%EB%A8%B8%EC%A7%80)
+
+
+# 힌트
+
+1. caesar 함수를 선언해줍니다. 이 함수는 두 개의 매개변수를 가집니다. 유저의 입력을 받아줄 매개변수
+와, 변환시킬 값을 받아줄 매개변수가 있습니다.
+
+2. user에게서 받은 문자열을 각각의 개별 문자로 쪼개어 배열에 넣어줍니다. 그리고 이 배열의 모든 원소에
+변환시킬 값만큼 옮겨줍니다.
+    - 문자열을 개별의 문자로 변환시키는 법 알아야 함
+    - 배열의 모든 원소에 접근하는 법을 알아야 함
+    - 문자를 아스키코드 값으로, 아스키코드 값을 문자로 변환하는 법을 알아야 함
+    - 들어온 문자가 알파벳인지 아닌지 확인해야함
+    - 큰 값이 들어왔을 때, 어떻게 알파벳 속에서 순환할 것인지를 알아야 함
+
+
+
 
 
