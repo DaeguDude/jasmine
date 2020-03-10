@@ -64,6 +64,11 @@ caesar("Hello World!", 1);
 // 예상되는 결과값: Ifmmp Xpsme!
 ```
 
+# 프로젝트 구성
+
+예시:
+![Image of Caesar Example](caesar예시.png)
+
 # 프로젝트를 도와줄 유용한 자료들
 
 ## Caesar's Cipher 함수 관련 자료
