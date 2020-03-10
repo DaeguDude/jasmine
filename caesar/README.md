@@ -67,7 +67,7 @@ caesar("Hello World!", 1);
 # 프로젝트 구성
 
 예시:
-![Image of Caesar Example](caesar예시.png)
+![Image of Caesar Example](https://github.com/DaeguDude/jasmine/blob/master/caesar%E1%84%8B%E1%85%A8%E1%84%89%E1%85%B5.png)
 
 # 프로젝트를 도와줄 유용한 자료들
 
