@@ -1,9 +1,3 @@
----
-layout: post
-title:  "시저암호"
-categories: jekyll update
----
-
 # 카이사르 암호화
 
 [카이사르 암호(Caesar cipher)](https://ko.wikipedia.org/wiki/%EC%B9%B4%EC%9D%B4%EC%82%AC%EB%A5%B4_%EC%95%94%ED%98%B8)
@@ -41,6 +35,43 @@ caesar("ABCDE", 1);
 // 예상되는 결과값: BCDEF
 ```
 
+카이사르 암호 함수에서, shift는 어떤 숫자도 될 수 있습니다. 음수가 될 수도 있고, 양수가 될 수도 있죠.
+음수를 받는다면, 문자를 뒤로 옮겨주면 됩니다.
 
+```javascript
+caesar("ABCDE", -1);
+// 예상되는 결과값: ZABCD
+```
+
+또한 값이 큰 숫자가 될 수도 있죠. 하지만, 아무리 큰 숫자를 받더라도 반환되는 값은 항상 알파벳이어야 
+합니다. 예를들어, shift에 30이라는 값이 들어왔다고 하면 한 바퀴를 다시 돌면 됩니다.
+
+```javascript
+caesar("ABCDE", 30);
+// 예상되는 결과값: EFGHI
+```
+
+마지막으로, 카이사르 암호는 알파벳만 암호화 시켜줍니다. 또한 소문자와 대문자를 따로 구분합니다.
+
+```javascript
+caesar("Hello World!", 1);
+// 예상되는 결과값: Ifmmp Xpsme!
+```
+
+# 프로젝트를 도와줄 유용한 자료들
+
+## Caesar's Cipher 함수 관련 자료
+- 많은 메쏘드들의 설명은 [MDN한글판](https://developer.mozilla.org/ko/docs/Web/JavaScript) 
+자바스크립트 섹션에서 찾을 수 있어요
+- [자바스크립트 배열사용법](https://offbyone.tistory.com/133)
+- [String.prototype.split()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+:String을 개별의 문자로 변환시켜 Array에 담아 반환
+- [String.fromCharCode()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
+:유니코드값을 바탕으로 문자열을 반환
+- [아스키코드란? 자바스크립트 아스키코드 변환](https://m.blog.naver.com/PostView.nhn?blogId=diceworld&logNo=220175224345&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+- [String.prototype.charCodeAt()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
+:주어진 인덱스에 대한 정수형 유니코드 값을 반환
+- [Array.prototype.join()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+:배열의 모든 요소를 연결해 하나의 문자열로 반환
 
 
