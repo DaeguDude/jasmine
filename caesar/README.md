@@ -1,9 +1,3 @@
----
-layout: post
-title:  "시저암호"
-categories: jekyll update
----
-
 # 카이사르 암호화
 
 [카이사르 암호(Caesar cipher)](https://ko.wikipedia.org/wiki/%EC%B9%B4%EC%9D%B4%EC%82%AC%EB%A5%B4_%EC%95%94%ED%98%B8)
@@ -63,11 +57,20 @@ caesar("ABCDE", 30);
 caesar("Hello World!", 1);
 // 예상되는 결과값: Ifmmp Xpsme!
 ```
+# 프로젝트 설명
 
-# 프로젝트 구성
+우리는 카이사르 암호를 이용해, 브라우저에서 유저에게 문자열과 암호화 할 값을 입력받아, 문자열을 암호화
+시켜 다시 브라우저에 나타내게 할 것입니다.
 
 예시:
 ![Image of Caesar Example](https://github.com/DaeguDude/jasmine/blob/master/caesar%E1%84%8B%E1%85%A8%E1%84%89%E1%85%B5.png)
+
+1. User가 문자열을 입력할 문자열 필드를 만들어주세요.
+2. User가 암호값을 입력할 문자열 필드를 만들어주세요.
+3. 암호화된 문자가 나타날 문자열 필드를 만들어주세요.
+4. 암호화를 동작시킬 버튼을 만들어줍니다.
+5. 버튼 클릭시, user가 입력한 문자열을 암호값만큼 변경시켜, 화면에 보여줍니다
+
 
 # 프로젝트를 도와줄 유용한 자료들
 
@@ -89,6 +92,12 @@ caesar("Hello World!", 1);
 
 # 힌트
 
+이 프로젝트를 하기 위해서, 추천하는 방법은 일단 이 프로젝트를 크게 두 가지로 나누어야 합니다
+
+1. caesar함수 작동시키는 자바스크립트 구현
+2. 웹에서 caesar 함수 동작시키기
+
+### caesar 함수 힌트
 1. caesar 함수를 선언해줍니다. 이 함수는 두 개의 매개변수를 가집니다. 유저의 입력을 받아줄 매개변수
 와, 변환시킬 값을 받아줄 매개변수가 있습니다.
 
@@ -99,6 +108,12 @@ caesar("Hello World!", 1);
     - 문자를 아스키코드 값으로, 아스키코드 값을 문자로 변환하는 법을 알아야 함
     - 들어온 문자가 알파벳인지 아닌지 확인해야함
     - 큰 값이 들어왔을 때, 어떻게 알파벳 속에서 순환할 것인지를 알아야 함
+
+### 웹에서 caesar 함수 동작 힌트
+
+1. 자바스크립트의 DOM(문서 객체 모델)에 대해서 알아야 합니다.
+    - [Element 객체에 접근하는 법](https://developer.mozilla.org/ko/docs/Web/API/Document/getElementById)
+    - [Event를 발생시키는 법](https://developer.mozilla.org/ko/docs/Web/API/EventTarget/addEventListener)
 
 
 
