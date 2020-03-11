@@ -117,6 +117,26 @@ caesar("Hello World!", 1);
     - [Event를 발생시키는 법](https://developer.mozilla.org/ko/docs/Web/API/EventTarget/addEventListener)
     
     
+## 테스트코드
+
+여기에 있는 코드들로, 결과를 한 번 테스트 해보세요!
+```javascript
+caesar('A', 1)
+// 예상되는 결과값 'B'
+
+caesar('Aaa', 1)
+// 예상되는 결과값 'Bbb'
+
+caesar('Hello, World!', 5)
+// // 예상되는 결과값 'Mjqqt, Btwqi!'
+
+caesar('Mjqqt, Btwqi!', -5)
+// 예상되는 결과값 'Hello, World!'
+
+caesar('Hello, World!', -29)
+// 예상되는 결과값 'Ebiil, Tloia!'
+```
+
 # 우리들의 작품
 
 1. https://hokidoki.github.io/jasmin_answer_page/      (종호)
