@@ -128,7 +128,7 @@ caesar('Aaa', 1)
 // 예상되는 결과값 'Bbb'
 
 caesar('Hello, World!', 5)
-// // 예상되는 결과값 'Mjqqt, Btwqi!'
+// 예상되는 결과값 'Mjqqt, Btwqi!'
 
 caesar('Mjqqt, Btwqi!', -5)
 // 예상되는 결과값 'Hello, World!'
