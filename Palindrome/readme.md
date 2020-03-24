@@ -17,3 +17,7 @@
 https://hokidoki.github.io/jasmin_answer_page/
 
 # 제출 링크 
+
+<!-- 이 밑에다가 레포지터리 링크와 프로젝트 주소를 적어주시면 됩니다. -->
+<!-- [이름](링크주소) 방식으로 쓰면 이름에 링크가 걸립니다. -->
+[김상학의 레포지터리](https://github.com/DaeguDude/palindrome) - [프로젝트 보러가기](https://daegudude.github.io/palindrome/)
