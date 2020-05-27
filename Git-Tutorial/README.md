@@ -20,6 +20,14 @@
 
 - 커밋하기
 - 특정 파일을 커밋에서 제외시키는 법
+- 기본적인 원상복구
+  - amend
+    - 커밋 메세지를 잘못 입력하였을 때
+    - 커밋에 파일을 추가하는 것을 까먹었을 때
+    - 파일에 오타가 있을때
+  - restore
+    - 스테이징 공간에 잘못 추가된 파일을 다시 워킹 트리로 옮기고 싶을 때
+    - 수정된 파일을 다시 원래의 상태로 돌리고 싶을 때
 - 일반적인 작업흐름
 
 
@@ -365,12 +373,126 @@ $ git log
 
 <!-- test 폴더를 만듬 -->
 
-## ㅎ
+## 기본적인 원상복구
 
+이번에는, 기본적인 원상복구 방법에 대해서 한 번 알아보겠습니다. 저희가 깃을 쓰다보면, 여러가지 실수를 하게되죠. 저희가 할 수 있는 실수들에 대해서 한 번 알아보고, 어떻게 대처할 수 있는지 한 번 알아보겠습니다.
 
+### amend
 
+amend는 이미 커밋이 되었지만,
 
+- 메세지를 잘못 입력
+- 커밋에 파일을 추가하는 것을 까먹었음
+- 파일에 오타가 있음
 
+경우에 사용할 수 있습니다. 먼저 메세지를 잘못 입력했을 때를 알아보겠습니다.
+예를 들어, 우리가 `script.js` 폴더에서, 빼기 함수를 수정하고, 커밋을 한다고 해봅시다. 그런데 메세지를, 곱하기를 수정했다고 잘못 입력하였습니다.
+
+```
+$ git add .
+$ git commit -m "Multiply function fixed"
+```
+
+이럴 때는, 아주 손 쉽게 다음 명령어를 입력해주면 됩니다.
+
+```
+$ git commit --amend -m "Subtract Function Fixed"
+```
+
+그러면, 우리는 새로운 커밋을 만들지 않고, 가장 최근의 커밋의 메세지를 바꾼 것을 확인해 볼 수 있습니다.
+
+만약, 여러분이 가장 최근의 커밋에 어떤 파일을 추가하는 것을 까먹었다고 했을 때도, amend라는 명령어를 써서 가장 최근의 커밋에 여러분이 까먹은 파일을 추가시킬 수도 있습니다. git commit amend는, 스테이징 공간에 있는 내용을 가져와, 커밋을 수정합니다. 예를 들어, `logbook.txt` 라는 파일을 만들고, 이것을 우리가 아까 수정한 커밋에 포함시켜봅시다. 그러면, amend가 스테이징 공간에 있는 내용을 가져와 커밋을 수정하기 때문에 먼저 스테이징 공간에 logbook.txt를 포함시켜야 겠지요? 그런 다음, amend 명령어를 실행해주면, 스테이징 공간에 있는 내용이 가장 최근의 커밋에 포함되는 것을 보실 수 있습니다.
+
+```
+$ git add logbook.txt
+$ git commit --amend
+
+Subtract function fixed
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Wed May 27 10:47:43 2020 +0900
+#
+# On branch master
+# Your branch is ahead of 'origin/master' by 5 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#       new file:   logbook.txt
+#       new file:   script.js
+#
+```
+
+이런 식으로, amend는 가장 최근의 커밋에 무엇인가를 포함시켜야 되거나, 메세지를 고치거나, 파일에 오타가 있었다거나 등등 아주 작은 변화를 고칠 때 유용합니다.
+
+### restore
+
+이번에는 restore 명령어에 대해서 알아볼 것입니다. 예를 들어, 여러분이 여러분만의 해야 할 일을 담은 `todolist.txt` 라는 파일을 생성해봅시다. 그리고 우리는 script.js의 함수들을 console.log로 다 바꾸어 주었습니다. 그리고 나서 이제 파일을 워킹트리에서 스테이징 공간으로 옮겨보죠.
+
+```
+$ git add .
+$ git status
+
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   script.js
+	new file:   todolist.txt
+```
+
+`script.js`와 `todolist.txt` 파일은 이제 커밋을 할 준비가 되어있습니다. 하지만, 생각해보니 todolist 파일은 여러분만의 todolist이기 때문에 커밋에 포함시키면 안 된다는 걸 여러분은 깨달았습니다. 그 때 쓸 수 있는 것이 이제 restore 명령어입니다. restore 명령어를 실행해서, 다시 워킹트리로 옮겨보겠습니다.
+
+```
+$ git restore --staged todolist.txt
+$ git status
+
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   script.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	todolist.txt
+```
+
+그러면 우리는 다시 todolist 파일이 스테이징 공간에서 워킹트리로 옮겨진 것을 확인할 수 있습니다. 
+
+또한 우리는 restore 옵션을, 우리가 파일에 만든 변화가 마음에 들지 않을 때도 사용할 수 있습니다. 예를 들어, return을 console.log로 바꾼 것은 잘못된 선택이었다고 생각이 들어, 다시 옛날의 상태로 돌려봅시다. 먼저, 스테이징 공간에서 워킹트리로 다시 옮겨줍니다.
+
+```
+$ git restore --staged script.js
+$ git status
+
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   script.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	todolist.txt
+```
+
+그런 다음, 결과물을 확인해보면 script.js가 변화는 있었지만, 커밋을 할 준비는 되어있지 않다라고 되어있는 것이 보이시죠? 우리는 이 변화를 돌려줄 것입니다.
+우리가 해야할 것은 restore를 한 번 더 해주면 됩니다.
+
+```
+$ git restore script.js
+```
+
+그러면, 우리의 파일이 원래대로 돌아간 것을 확인할 수 있을 것입니다.
 
 
 
