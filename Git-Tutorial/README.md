@@ -19,6 +19,7 @@
     - 리모트 리포지터리로 부터 클론하기
 
 - 커밋하기
+- 특정 파일을 커밋에서 제외시키는 법
 - 일반적인 작업흐름
 
 
@@ -305,6 +306,70 @@ Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
 	new file:   README.md
 ```
+
+자, 위의 결과물을 보시면, 우리의 파일은 이제 추적된 상태로 변하였고, 워킹 트리에서 스테이징 공간으로 넘어가 커밋을 할 준비가 되어 있습니다. 그래서 여러분이 커밋을 한다면, 이제 우리가 git add 를 해주었을 당시의 파일의 상태가 커밋이 되는 것이죠.
+
+### Staging Modified Files(추적된 상태의 파일을 준비시키기)
+
+자, 이번에는 이미 추적된 상태의 파일을 다시 스테이징 공간으로 옮기고, 커밋을 해보겠습니다. script.js의 파일에 주석을 달아주고, 다시 한 번 깃을 확인해보겠습니다. 
+
+```
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   README.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   script.js
+```
+
+결과를 한 번 확인해보면, 저희가 아까 올려둔 README 파일은 이미 커밋을 할 준비가 되어있고, script.js라는 파일은 변화가 있었지만, 커밋을 할 준비가 안 되어있다고 나옵니다. 이것이 무엇을 뜻하냐면, 파일은 추적된 상태로 있고, 수정되었지만, 커밋을 하기 위한 준비는 되어있지 않다는 뜻입니다. 이것은 추적된 파일이 워킹트리에서 수정이 되었지만, 스테이징 공간으로 옮겨지지는 않았다는 것을 의미합니다. 그러면 다시 스테이징 공간으로 'script.js' 파일을 옮겨봅시다.
+
+```
+$ git add script.js
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   README.md
+	modified:   script.js
+```
+
+이제 두 파일이 모두 스테이징 공간으로 옮겨서 커밋을 할 준비가 완료되었습니다. 두 파일이 모두 준비가 되었기 때문에, 저희는 이제 커밋만 해주면 됩니다.
+
+```
+$ git commit -m "my commit"
+
+[master f6ebb31] my commit
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+ create mode 100644 README.md
+```
+
+이런 식으로 커밋이 완료되면 메세지가 뜰 것입니다. 그리고 저희의 커밋의 히스토리르 보려면,
+
+```
+$ git log
+```
+를 실행해서 이때까지의 커밋의 히스토리를 볼 수 있습니다.
+
+## 특정파일 제외시키기
+
+예를 들어, 우리가 다른 사람의 레포지터리를 내려받아서 개발을 하다보면, 그 폴더안에 팀 전체에 필요한 것이 아닌 나에게만 필요한 프로그래밍 개발일지를 작성한다거나, 테스트 일지를 만든다거나 등등 팀 전체에는 불필요한 파일들을 생성하게 되는 경우가 있습니다. 이러한 경우에는 팀과 협력을 하고 있는 경우, 이러한 파일들이 커밋이 되면 안되겠죠? 그래서 깃에는, 이러한 파일들을 제외시킬 수 있습니다. 이러한 파일들을 `git status`를 실행하여도, untracked라고 나타나지도 않을 것입니다. 우리는 우리가 제외시키고 싶은 파일들을, `.gitignore`이라는 파일에 넣어 주면 됩니다. 예를 들어, test라는 폴더를 만들고 그 밑에 몇 개의 파일을 생성하였습니다. 그리고 git status를 실행하면, untracked files에 이 폴더가 뜰 것입니다. 하지만 gitignore에 가서 test폴더를 무시해 라고 설정을 해준다면, 더 이상 깃에서는 그 폴더를 커밋에 포함시키지 않을 것입니다.
+
+<!-- test 폴더를 만듬 -->
+
+## ㅎ
+
+
+
+
 
 
 
