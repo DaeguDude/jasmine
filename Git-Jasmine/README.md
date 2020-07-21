@@ -186,6 +186,102 @@ $ cp a.txt b.txt egg
 
 위의 명령어에서 저는 egg라는 디렉토리에 a.txt와 b.txt 두 개의 파일을 한 번에 복사하여 넣어주었습니다. 여기서 기억하셔야 할 것은 원래의 파일 이름이 그대로 사용된다는 것입니다.
 
-### 폴더 복사하기
+### 폴더 복사하기(-R)
 
+기본적으로 `cp` 명령어는 파일을 복사합니다. 만약에 디렉토리를 복사하려고 하면 오류가 뜰 것입니다.
+
+```shell
+$ cp foo bar
+cp: foo is a directory (not copied).
+```
+
+이러한 오류를 고치기 위해서는 우리는 `-R` 을 사용하여 디렉토리를 복사해야합니다. `-R`은 디렉토리 안에 있는 모든 컨텐츠들을 복사함으로써 새로운 디렉토리를 만듭니다.
+
+```shell
+$ cp -Rv foo bar
+foo -> bar
+foo/a.txt -> bar/a.txt
+```
+
+우리는 `-v` 를 사용함으로써, foo안에 있는 모든 파일이 bar라는 디렉토리 안에 복사됨을 알 수 있습니다.
+
+## 파일 지우기(rm)
+
+`rm` 명령어는 파일이나 폴더를 지우기 위해 사용됩니다. foo 디렉토리 안에 있는 a.txt를 한 번 지워보겠습니다. 
+
+```shell
+$ ls foo
+a.txt
+$ rm -v a.txt
+a.txt
+$ ls
+
+```
+
+성공적으로 a.txt가 지워졌음을 알 수 있습니다. 
+
+## 폴더 지우기(rmdir) 
+
+`rm` 명령어를 통해서 폴더를 지우려고 하시면 오류가 뜨는 것을 보실 수 있을 겁니다. 디렉토리를 지우려면 `rmdir` 이라는 명령어를 사용하시면 되는데요. 이 명령어는 비어있는 디렉토리만 제거합니다.
+
+예를 들어, a.txt가 들어있는 foo 디렉토리를 지우려고 하면 오류가 뜰 겁니다.
+
+```shell
+$ rmdir foo
+rmdir: foo: Directory not empty
+```
+
+이것이 어떻게 보면 안전한 것입니다. 실제로 여러분이 실수로 폴더안에 있는 모든 파일들을 날려버리지 않게 말이죠. 하지만 여러분이 실제로 파일을 신경쓰지 않고 모두 날려버리고 싶다면 `rm -rf`를 사용하시면 됩니다. 
+
+```shell
+$ rm -rf -v foo
+foo/a.txt
+foo
+```
+
+## 파일 옮기기(move - mv)
+
+파일을 옮기는 방법은 우리가 금방 배웠던 것처럼 파일을 복사하는 법과 똑같습니다. `mv` 명령어를 통해서 우리는 파일을 옮길 수 있습니다. 사실 생각해보면, `mv` 명령어는 `cp` 명령어와 `rm` 명령어의 조합이라고 보시면 됩니다. 파일을 복사하여 어떤 위치에 붙여주고, 원래 위치의 파일을 지워주는 것이죠.
+
+```shell
+$ mv foo/a.txt bar/a.txt
+$ ls bar
+a.txt
+```
+
+## 인풋/아웃풋(|, >)
+
+### 출력물 엮기(|)
+
+우리는 어떤 한 명령어의 출력물을 다른 명령어의 인풋으로 넣어줌으로써 재밌는 명령어를 구성할 수 있습니다. 어떤 한 출력물을 다른 명령어의 인풋으로 넣어주려면 `|` 플래그를 써주시면 됩니다. 파이프 명령어라고 불리기도 합니다.
+
+```shell
+$ ls -a ~ | grep _
+.DS_Store
+.bash_history
+.bash_profile
+.bash_sessions
+.python_history
+.zsh_history
+.zshrc.pre-oh-my-zsh-2020-03-03_17-26-16
+```
+
+위의 명령어는 처음으로 홈 디렉토리(~)에 있는 모든 숨겨진 파일과 폴더들을 `ls` 명령어를 통해 나타내고, 그 다음 [grep](https://www.gnu.org/software/grep/manual/grep.html) 명령어를 통해 '_' 를 포함하고 있는 모든 파일들을 출력합니다.
+
+### 파일에 쓰기(>)
+
+출력물을 다른 명령어에 엮음에 이어서 우리는 그 출력물을 파일에 쓸 수도 있습니다. `>` 명령어와 함께 말이죠. 저희가 아까 한 명령어와 같이, `_` 를 포함하고 있는 모든 파일을 underscores.txt 라는 텍스트 파일에 넣어보겠습니다.
+
+```shell
+$ cat underscores.txt
+.DS_Store
+.bash_history
+.bash_profile
+.bash_sessions
+.python_history
+.zsh_history
+.zshrc.pre-oh-my-zsh-2020-03-03_17-26-16
+```
+
+[cat](http://conqueringthecommandline.com/book/extras#sec-extras-cat) 명령어를 이용해 우리는 underscores.txt에 _를 포함하고 있는 모든 파일이 입력된 것을 알 수 있습니다.
 
