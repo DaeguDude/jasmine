@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>중화요리 가격비교</title>
+	<style>
+		table { border-collapse: collapse; }
+		th, td { border: 1px solid black;
+						width: 150px; height: 50px;
+						font-size: 24px;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<caption>A와 B의 중화요리 가격비교</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th scope="col" id="houseA">A</th><!-- scope은 th태그에만 사용가능 -->
+				<th scope="col" id="houseB">B</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th scope="row" id="menu1">짜장면</th>
+				<td headers="houseA menu1">4,000원</td>
+				<td headers="houseB menu1">5,000원</td>
+			</tr>
+			<tr>
+				<th scope="row" id="menu2">짬뽕</th>
+				<td headers="houseA menu2">4,500원</td>
+				<td headers="houseB menu2">5,500원</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th scope="row" id="total">합계</th>
+				<td headers="houseA total">9,000원</td>
+				<td headers="houseB menu1 menu2 total">10,000원</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>
