@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      Palindrome - 회문
+    </div>
+    
+    <div id="user-string-box">
+      <input type="text" id="user-text" value="회문을 체크할 단어나 문장을 입력해주세요.">
+    </div>
+    
+    
+    <button type="button" id="check-palindrome">
+        회문 확인
+    </button>
+    
+    <div id="result">
+
+    </div>
+    
+  </div> 
+</body>
+
+<!-- Javascript -->
+<script>
+
+function palindrome(originalStr) {
+  // First I'm going to rip it letter by letter. 
+  // So it becomes array
+  let strippedStr = originalStr.split('');
+
+  // I will make a copy of strippedStr and reverse them
+  let strippedStrReversed = strippedStr.slice().reverse();
+
+  // And make that as a string by using join method
+  let reversedStr = strippedStrReversed.join('');
+  
+  if (originalStr == reversedStr) {
+    return true;
+    // console.log(`'${originalStr}'는 거꾸로해도 '${reversedStr}'가 맞습니다.`);
+  } else {
+    return false;
+    // console.log(`'${originalStr}'는 거꾸로하면 '${reversedStr}'기 때문에 회문이 아니쥬~?`);
+  }
+}
+  
+  let checkPalindrome = document.getElementById("check-palindrome");
+  
+  checkPalindrome.addEventListener("click", (e) => {
+    let userText = document.getElementById('user-text').value;
+    let reversedUserText = userText.split('').slice().reverse().join('');
+    let result = document.getElementById('result');
+    
+    
+    if (palindrome(userText)) {
+      result.innerHTML = `'${userText}'는 거꾸로해도 '${reversedUserText}'입니다.`;
+    } else {
+      result.innerHTML = `'${userText}'는 거꾸로하면 '${reversedUserText}'기 때문에 회문이 아닙니다`;
+    }
+  });
+
+</script>
+</html>
