@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>CSS3 Selector Basic Page</title>
+    <style>
+      * { margin: 0; }
+      #header { width: 800px; height: 200px;
+                 background-color: skyblue; }
+
+      #container { overflow: hidden; width: 800px; background-color: lightgray; }
+      #aside { width: 300px; height: 400px; float: right;
+              background-color: orange; }
+      #content { width: 400px; height: 500px; float: left;
+                background-color: pink; }
+    </style>
+</head>
+<body>
+    <!-- 아이디선택자는 웹페이지안에서 중복적용을 하면 안된다 (예제 적용하기) -->
+    <div id="header">
+        <h1>Header</h1>
+    </div>
+    <div id="container">
+        <div id="aside">
+            <h1>Aside</h1>
+        </div>
+        <div id="content">
+            <h1>Content</h1>
+        </div>
+    </div>
+</body>
+</html>
