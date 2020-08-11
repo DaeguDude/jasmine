@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+      /* input[disabled="disabled"] { background-color: skyblue; } */
+      /* input[disabled] { background-color: skyblue; } */
+      input:disabled { background-color: skyblue; }
+      input:enabled { background-color: pink; }
+      input:focus { background-color: blue; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Enabled</h1>
+    <input type="text">
+    <h1>Disabled</h1>
+    <input type="text" disabled>
+</body>
+</html>
