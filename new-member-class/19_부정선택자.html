@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+        /* input 태그 중에서 type 속성이 password가 아닌 태그의 background 속성에 red 키워드를 적용합니다.*/
+        input:not([type="password"]) { background-color: red; }
+        input:not(:disabled) { border: 2px solid blue;  }
+    </style>
+</head>
+<body>
+    <input type="text" disabled>
+    <input type="tel">
+    <input type="email">
+    <input type="password">
+    <input type="text">
+    <input type="password" >
+    <input type="text">
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>폼태그</title>
+  </head>
+  <body>
+    <form><!-- action, method 속성 적용-->
+      <input type="text"  name="idName" maxlength="5" value="폼요소의 값"><br>
+      <input type="password"><br>
+      <input type="button" value="확인">
+      <input type="submit" value="전송">
+      <input type="reset" value="새로작성">
+      <input type="image" src="images/login.jpg" alt="로그인">
+      <button>버튼</button><br>
+      <input type="checkbox" value="tennis" name="hobby" checked="checked">테니스
+      <input type="checkbox" value="bawling" name="hobby">볼링
+      <input type="checkbox" value="movie" name="hobby" >영화관람<br>
+      <input type="radio" name="agree" value="yes">동의합니다
+      <input type="radio" name="agree" value="no" checked="checked">동의하지 않습니다<br>
+      <input type="file"><br>
+      <textarea rows="5">문의내용을 입력하세요</textarea><br>
+      <select onchange="if(this.value) window.open(this.value)"><!-- multiple="multiple" 모바일용으로 적합 -->
+        <optgroup label="HTML">
+          <option value="http://www.w3.org/">HTML1</option>
+          <option value="html4">HTML4</option>
+          <option value="html5">HTML5</option>
+        </optgroup>
+        <optgroup label="CSS">
+          <option value="css1" selected>CSS1</option>
+          <option value="css2">CSS2</option>
+          <option value="css3">CSS3</option>
+        </optgroup>
+        <optgroup label="JS">
+          <option value="javascript">javascript</option>
+          <option value="jquery">jquery</option>
+          <option value="vue">vue.js</option>
+          <option value="react">react.js</option>
+        </optgroup>
+      </select>
+    </form>
+  </body>
+</html>

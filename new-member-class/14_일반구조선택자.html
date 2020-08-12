@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+       /* 첫번째 p 태그에 스타일을 적용합니다 */
+        p:first-child { color: red; }
+        p:nth-child(2) { color: red; }
+
+       /* 마지막 p 태그에 스타일을 적용합니다 */
+        p:last-child { color: red; }
+
+       /* 홀수번째 p 태그에 스타일을 적용합니다 */
+        p:nth-child(odd) { background-color: beige; }
+        /* p:nth-child(2n+1) */
+
+       /* 짝수번째 p 태그에 스타일을 적용합니다 */
+        p:nth-child(even) { background-color: lightgreen; }
+        /* p:nth-child(2n) */
+    </style>
+</head>
+<body>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</body>
+</html>

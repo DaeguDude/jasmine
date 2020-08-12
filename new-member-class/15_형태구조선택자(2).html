@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic Page</title>
+    <style>
+
+        /* 일반구조 선택자와 형태구조선택자의 차이 */
+
+        #first > *:nth-child(1) { color: red;  }
+
+        #second > *:nth-of-type(1) { color: blue;  }
+
+    </style>
+</head>
+<body>
+    <div id="first">
+        <h1>Header - 1</h1>
+        <h2>Header - 2</h2>
+        <h3>Header - 3</h3>
+        <h4>Header - 4</h4>
+        <h5>Header - 5</h5>
+        <h6>Header - 6</h6>
+    </div>
+    <div id="second">
+        <h1>Header - 1</h1>
+        <h2>Header - 2</h2>
+        <h3>Header - 3</h3>
+        <h4>Header - 4</h4>
+        <h5>Header - 5</h5>
+        <h6>Header - 6</h6>
+    </div>
+</body>
+</html>

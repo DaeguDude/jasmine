@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS3 Selector Basic Page</title>
+    <style>
+      /* h1 태그 중에서 첫번째 h1 태그의 color 속성에 red 키워드를 적용합니다 */
+      h1:first-of-type { color: red; }
+      h1:nth-of-type(2) { color: red; }
+      h1:last-of-type { color: red; }
+      /* h2 태그 중에서 마지막 h2 태그의 color 속성에 blue 키워드를 적용합니다 */
+      h2:last-of-type { color: blue; }
+
+      /* h3 태그 중에서 홀수번째 h3 태그의 color 속성에 green 키워드를 적용합니다 */
+      h3:nth-child(odd) { color: green; }
+
+    </style>
+</head>
+<body>
+    <h1>Header - 1</h1>
+    <h2>Header - 2</h2>
+    <h3>Header - 3</h3>
+    <h1>Header - 1</h1>
+    <h2>Header - 2</h2>
+    <h3>Header - 3</h3>
+    <h1>Header - 1</h1>
+    <h2>Header - 2</h2>
+    <h3>Header - 3</h3>
+</body>
+</html>
