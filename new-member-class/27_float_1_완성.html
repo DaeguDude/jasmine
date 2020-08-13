@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <title>float를 이용한 레이아웃 완성하기</title>
+    <style>
+        /* 초기화 */
+        body { margin: 0; padding: 0; }
+        /* 가로 800px 크기의 2단 레이아웃을 만들어 봅니다 */
+        #wrap { width: 800px; margin: 0 auto; }
+        #header { height: 200px; background: #000; }
+        #container { overflow: hidden; /*height: 500px;*/ background: #eae06e; }
+        #section { width: 500px; height: 500px; background: #b6ff00; 
+                   float: left;
+        }
+        #aside { width: 200px; height: 300px; background: #318dff;
+                 float: right; 
+        }
+        #footer { /*clear: both;*/ height: 150px; background: #808080; }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="container">
+            <div id="section"></div>
+            <div id="aside"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>
