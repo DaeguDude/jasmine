@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <title>float를 이용한 레이아웃 완성하기</title>
+    <style>
+        /* 초기화 */
+        body { margin: 0; padding: 0; font-size: 20px; font-weight: bold; }
+
+        /* 가로 1000px 크기의 3단 레이아웃을 만들어 봅니다 */
+        
+        #headerWrap { height: 200px; background: #76a751; margin-bottom: 50px; 
+                      /* padding-top: 100px; 높이값에서 패딩값을 뺀다 */
+                      overflow: hidden;
+        }
+        #header { width: 1000px; height: 100px; margin: 0 auto; background: #d2ff99; 
+                  margin-top: 100px; 
+                  /* 부모요소에 overflow: hidden을 적용 */
+        }
+
+        #wrap { width: 1000px; margin: 0 auto; }
+        #container { overflow: hidden; }
+        #section1 { width: 400px; height: 400px; background: #b6ff00; float: left; 
+                    margin-right: 50px; }
+        #section2 { width: 300px; height: 400px; background: #d2ff99; float: left; }
+        #aside { width: 200px; height: 300px; background: #99b8ff; float: right; }
+
+        #footer { clear: both; height: 150px; background: #f5ae7c; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <div id="headerWrap">
+        <div id="header">헤더</div>
+    </div>
+    <div id="wrap"><!-- 반드시 필요한 요소는 아님 -->
+        <div id="container">
+            <div id="section1">섹션1</div>
+            <div id="section2">섹션2</div>
+            <div id="aside">사이드</div>
+        </div>
+        <div id="footer">푸터</div>
+    </div>
+</body>
+</html>

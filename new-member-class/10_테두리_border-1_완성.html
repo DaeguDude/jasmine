@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <title>테두리속성</title>
+    <style>
+        /* div 태그에 테두리를 적용합니다 */
+
+        div { width: 200px; height: 150px;
+              padding: 100px;
+             /* border-width: 10px; 
+              border-style: solid;
+              border-color: gray; */
+             border : 10px solid gray;
+        }
+        /* 선종류 : solid, dotted, dashed, double
+                       inset, outset, groove, ridge
+        */  
+        /*
+        div h1 { border-bottom: 1px solid #000;
+                 border-top: 3px solid #ff0000;
+        }
+        */
+        div h1 { border: 1px solid #000;
+                 border-left: 0; border-right: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Lorem ipsum dolor amet</h1>
+    </div>
+</body>
+</html>
