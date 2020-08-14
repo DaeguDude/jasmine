@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <title>float를 이용한 레이아웃 완성하기</title>
+    <style>
+        /* 초기화 */
+        body { margin: 0; padding: 0; font-size: 20px; font-weight: bold; }
+
+        /* 가로 1000px 크기의 3단 레이아웃을 만들어 봅니다 */
+
+        #headerWrap { overflow: hidden; height: 200px; background: #76a751; }
+        #header { width: 1000px; height: 100px; margin: 0 auto; background: #d2ff99; }
+
+        #container { overflow: hidden; width: 1000px; margin: 0 auto; }
+        #section1 { width: 400px; height: 400px; background: #b6ff00; float: left; }
+        #section2 { width: 300px; height: 400px; background: #d2ff99; float: left; }
+        #aside { width: 200px; height: 300px; background: #99b8ff; float: right; }
+
+        #footer { clear: both; width: 1000px; height: 150px; margin: 0 auto; background: #f5ae7c; }
+    </style>
+</head>
+<body>
+    <div id="headerWrap">
+        <div id="header">헤더</div>
+    </div>
+    <div id="container">
+        <div id="section1">섹션1</div>
+        <div id="section2">섹션2</div>
+        <div id="aside">사이드</div>
+    </div>
+    <div id="footer">푸터</div>
+</body>
+</html>

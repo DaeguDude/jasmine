@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float속성을 이용한 예제</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #headerWrap{
+            background: #ed995d;
+        }
+        #header{
+            width: 1000px;
+            height: 200px;
+            margin: 0 auto;
+            background: #c25d16;
+        }
+        #container{
+            width: 1000px;
+            margin: 0 auto;
+            background: green;
+            overflow: hidden;
+        }
+        #section{
+            width: 800px;
+            height: 500px;
+            background: #5c7e07;
+            float: left;
+        }
+        #aside{
+            width: 100px;
+            height: 400px;
+            background: greenyellow;
+            float: right;
+        }
+        #footerWrap{
+            background: skyblue;
+
+        }
+        #footer{
+            width: 1000px;
+            height: 150px;
+            margin: 0 auto;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="headerWrap">
+        <div id="header">헤더</div>
+    </div>
+    <div id="container">
+        <div id="section">섹션</div>
+        <div id="aside">사이드</div>
+    </div>
+    <div id="footerWrap">
+        <div id="footer">푸터</div>
+    </div>
+</body>
+</html>

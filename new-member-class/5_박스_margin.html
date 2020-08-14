@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>박스속성 - 여백</title>
+    <style>
+
+      body { /* margin-top: 20px;
+                margin-right: 30px;
+                margin-bottom: 40px;
+                margin-left: 50px; */
+            /* margin: 20px 30px 40px 50px; top을 기준으로 시계방향 */
+            /* margin: 20px  40px; 위=아래, 좌=우 경우 끝 두 값을 생략가능 */
+            /* margin: 20px 30px 40px; 위, 아래 다르고, 좌=우 경우 끝 한자리 생략가능 */
+            margin: 0;
+        }
+
+      #box1 { width: 200px; height: 200px; background-color: red;
+              margin-bottom: 100px;
+            }
+      #box2 { width: 200px; height: 200px; background-color: blue;
+              margin-top: 50px;
+            }
+      /* margin속성은 위 아래 요소의 margin이 중첩될 경우
+        한 값만 적용(or 큰값) */
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+</html>
