@@ -169,5 +169,165 @@ let result = `이근 대위와 개코의 점수차이는 ${kenLeeScore - gaekoSc
 result;     // "이근 대위와 개코의 점수차이는 12점입니다."
 ```
 
+## 문자열 속성과 메쏘드
 
+마지막으로 문자열의 속성과 메쏘드에 관해서 알아보겠습니다. 속성은 어떤 것에 대한 자세한 설명들 이라고 보시면 되겠고, 메쏘드는 유용한 기능들 이라고 생각하시면 편할 수도 있습니다. 한 번 살펴보면서 더욱 더 이해를 깊게 해보죠.
+
+#### 문자열 길이
+`length` 속성은 문자열의 길이를 반환합니다.
+
+```javascript
+let text = 'Ken Lee is a KING';
+let textLength = text.length;
+
+textLength; // 17
+```
+
+#### 문자열안에서 문자열 찾기
+`indexOf()` 메쏘드를 통해, 문자열안에서 찾으려는 특정한 문자가 첫번째로 나타나는, 원소의 위치를 반환합니다.
+
+```javascript
+let string = '여러분, 저는 저를 찾을 수 있을까요?';
+string.indexOf('저');  // 5
+```
+
+자바스크립트는 원소의 위치를 0에서 부터 셉니다. 그래서 첫번째 `저` 라는 문자의 위치를 반환하여 5라는 값을 받았습니다.
+
+`lastIndexof` 메쏘드를 통해, 문자열안에서 찾으려는 특정한 문자가 마지막으로 나타나는 원소의 위치를 반환하기도 합니다.
+
+```javascript
+let string = '여러분, 저는 저를 찾을 수 있을까요?';
+string.lastIndexOf('저');  // 8
+```
+
+#### 특정한 문자 추출하기
+
+`slice()` 메쏘드를 통해, 문자열안에서 특정한 위치의 문자를 추출해낼 수도 있습니다.
+
+`slice()` 메쏘드는 두 개의 매개변수를 가집니다. 첫번째는 시작 위치, 두번째는 끝나는 위치입니다. 하지만 끝나는 위치는 추출할 때 포함되지 않아요! 예를 들어서, 밑의 예시는 3번째 'n'부터 6번째 위치인 'e'까지 추출하지 않고, 5번째 위치인 'm'까지만 출력하여 'nam'을 가지게 되는 것이죠.
+
+```javascript
+let string = 'My name is say what!?';
+let extractedString = string.slice(3, 6);
+
+extractedString;    // 'nam'
+```
+
+만약에 두 번째 매개변수에 값을 넣어주지 않는다면, 시작점부터 문자열의 끝까지를 추출할 것입니다.
+
+```javascript
+let string = 'My name is say what!?';
+let extractedString = string.slice(3);
+
+extractedString;    // "name is say what!?"
+```
+
+#### substr()
+
+`substr()` 메쏘드를 통하여, 시작점부터 특정한 길이만큼의 텍스트를 추출해 낼 수도 있습니다.
+
+```javascript
+let greeting = "Hey what's poppin?"
+let extracted = greeting.substr(4, 6);
+
+extracted;  // "what's"
+```
+
+만약에, 두번째 매개변수에 값을 넣어주지 않으면, slice와 같이 나머지를 다 추출할 것입니다.
+
+```javascript
+let greeting = "Hey what's poppin?"
+let extracted = greeting.substr(4);
+
+extracted;  // "what's poppin?"
+```
+
+#### 문자열 내용 바꿔주기
+
+`replace()`를 이용해 문자열에 있는 문자의 내용을 바꿔줄 수도 있습니다. 하지만, 원래의 문자열의 내용을 바꾸어주는 것이 아니라, 내용이 바뀐 새로운 문자열을 반환합니다.
+
+```javascript
+let welcomeMessage = "Please come to Seoul University!"
+let replacedMessage = welcomeMessage.replace('Seoul', 'Keimyung');
+
+replacedMessage; // "Please come to Keimyung University!"
+```
+
+그리고 또한, 똑같은 단어가 여러개라면, 첫번째로 매치되는 단어만 바꾸어 줍니다.
+```javascript
+let welcomeMessage = "Please come to Seoul University and Seoul!"
+let replacedMessage = welcomeMessage.replace('Seoul', 'Keimyung');
+
+replacedMessage;    // "Please come to Keimyung University and Seoul!"
+```
+
+#### 대문자와 소문자로 바꿔주기
+
+toUppercase()와 toLowerCase()를 이용해 대문자 소문자로 바꾸어 줄 수도 있습니다.
+
+```javascript
+let myName = 'kim homie';
+let capitalizedName = myName.toUpperCase();
+
+capitalizedName;    // "KIM HOMIE"
+```
+
+```javascript
+let myName = 'KIm HomIE';
+let lowerCasedName = myName.toLowerCase();
+
+lowerCasedName;     // "kim homie"
+```
+
+#### concat()
+
+`concat()` 메쏘드를 통해, 여러 개의 문자열을 합칠 수도 있습니다. '+' 연산자와 비슷한 역할을 해주죠.
+
+```javascript
+let text1 = "Hey,"
+let text2 = "Welcome to the new world!"
+let text3 = text1.concat(" ", text2);
+
+text3;  // "Hey, Welcome to the new world!"
+```
+
+#### trim()
+
+`trim()` 메쏘드를 통해, 앞쪽과 뒷쪽에 있는 여백을 지울 수도 있습니다.
+
+```javascript
+let textWithSpace = "        LIKE THIS!            ";
+let textWithOutSpace = textWithSpace.trim();
+
+textWithOutSpace;   // "LIKE THIS!"
+```
+
+#### 문자 추출하기
+
+`chartAt()` 메쏘드를 통해, 특정한 원소위치에 있는 문자를 반환할 수도 있습니다.
+```javascript
+let myString = "Where am I?";
+myString.charAt(1); // "h";
+```
+
+`chartCodeAt()` 메쏘드를 통해, 특정한 원소 위치에 있는 문자의 utf-16 code를 반환할 수도 있습니다. 쉽게 얘기하여, 모든 문자에 16진수 방식으로 값을 부여해 둔 것입니다.
+
+```javascript
+let string = 'abcde';
+
+string.charCodeAt(0);   // 97
+```
+
+string변수에 첫번째로 위치한 a 문자는, 97이라는 숫자를 가지고 있네요.
+
+#### 속성접근
+
+ECMAScript 5(2009)에서는, 문자열에 속성방식으로 접근하는 새로운 방식을 소개했습니다. 
+
+```javascript
+let string = 'abcde';
+string[0];  // a
+string[1];  // b
+string[4];  // e
+```
 
