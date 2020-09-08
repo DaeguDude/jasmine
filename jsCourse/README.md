@@ -25,10 +25,10 @@
 
 ## Week1
 
-- [효율적인 공부법](/Users/sanghak/Desktop/jasmine/jsCourse/week1/conditionals.md)
-- [숫자](/Users/sanghak/Desktop/jasmine/jsCourse/week1/number.md)
-- [변수](/Users/sanghak/Desktop/jasmine/jsCourse/week1/variable.md)
-- [문자열](/Users/sanghak/Desktop/jasmine/jsCourse/week1/string.md)
+- [효율적인 공부법](https://medium.com/@k3hppk/%EA%B3%B5%EB%B6%80%EB%B2%95-1fd273560d19)
+- [숫자](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week1/number.md)
+- [변수](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week1/variable.md)
+- [문자열](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week1/string.md)
 
 
 
