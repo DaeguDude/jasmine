@@ -331,3 +331,17 @@ string[1];  // b
 string[4];  // e
 ```
 
+### 참고사항
+
+많은 내용들은 오픈소스 프로젝트인 [The Odin Project](https://www.theodinproject.com/dashboard)에서 가져온 내용들입니다. 
+
+- [문자열 다루기 - MDN](https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps/Strings)
+
+- [자바스크립트 문자열 메쏘드 - w3school](https://www.w3schools.com/js/js_string_methods.asp)
+
+### 고칠점 / 연락하기
+
+혹시나 글에서 고칠 점이나 추가되어야 할 점이 있다면, [Jasmine 깃허브]((https://github.com/DaeguDude/jasmine/tree/week1-number))에서 issue를 생성해주시고, 개인적인 연락은 k3hppk@gmail.com 으로 주시면 됩니다.
+
+
+

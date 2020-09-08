@@ -239,12 +239,14 @@ myNumber--;
 alert(myNumber);    // 1
 ```
 
-### 고칠점 / 참고사항
+### 참고사항
 
 많은 내용들은 오픈소스 프로젝트인 [The Odin Project](https://www.theodinproject.com/dashboard)에서 가져온 내용들입니다. 
 
-- [자바스크립트 숫자](https://www.w3schools.com/js/js_numbers.asp)(w3school)
-- [숫자와 연산자](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math)(MDN)
-- [기본적인 연산자와 수학](https://javascript.info/operators)(Javascript Info)
+- [자바스크립트 숫자 - w3school](https://www.w3schools.com/js/js_numbers.asp)
+- [숫자와 연산자 - MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math)
+- [기본적인 연산자와 수학 - Javascript Info](https://javascript.info/operators)
 
-혹시나 글에서 고칠 점이나 추가되어야 할 점이 있다면, [Jasmine](https://github.com/DaeguDude/jasmine/tree/week1-number) 깃허브에서 issue를 생성해주시기 바랍니다.
+### 고칠점 / 연락하기
+
+혹시나 글에서 고칠 점이나 추가되어야 할 점이 있다면, [Jasmine 깃허브]((https://github.com/DaeguDude/jasmine/tree/week1-number))에서 issue를 생성해주시고, 개인적인 연락은 k3hppk@gmail.com 으로 주시면 됩니다.

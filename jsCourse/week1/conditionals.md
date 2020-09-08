@@ -342,6 +342,17 @@ alert(message)
 
 우리가 넘겨준 함수에는 삼항연산자가 있죠. 선택된 값이 black이라면, 배경을 어둡고 텍스트 색깔을 하얀색으로, 선택된 값이 white라면, 배경을 밝고 텍스트 색깔을 검은색으로 바꿔줍니다. 보시다시피, 삼항연산자를 쓸 때, 함수를 섞어서 더욱 더 강력하게 써주실 수 있습니다.
 
+### 참고사항
+
+많은 내용들은 오픈소스 프로젝트인 [The Odin Project](https://www.theodinproject.com/dashboard)에서 가져온 내용들입니다. 
+
+- [코드 안에서 결정을 내리기 - 조건문](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Building_blocks/%EC%A1%B0%EA%B1%B4%EB%AC%B8)
+
+### 고칠점 / 연락하기
+
+혹시나 글에서 고칠 점이나 추가되어야 할 점이 있다면, [Jasmine 깃허브]((https://github.com/DaeguDude/jasmine/tree/week1-number))에서 issue를 생성해주시고, 개인적인 연락은 k3hppk@gmail.com 으로 주시면 됩니다.
+
+
 
 
 

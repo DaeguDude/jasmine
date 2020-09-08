@@ -207,6 +207,16 @@ alert(`제 이름은 ${myName}입니다.`);
 
 변수를 여분으로 더 생성하는 것은 좋은 것입니다. 나쁜 것이 아닙니다.
 
+### 참고사항
+
+많은 내용들은 오픈소스 프로젝트인 [The Odin Project](https://www.theodinproject.com/dashboard)에서 가져온 내용들입니다. 
+
+- [자바스크립트 변수](https://javascript.info/variables)
+
+### 고칠점 / 연락하기
+
+혹시나 글에서 고칠 점이나 추가되어야 할 점이 있다면, [Jasmine 깃허브]((https://github.com/DaeguDude/jasmine/tree/week1-number))에서 issue를 생성해주시고, 개인적인 연락은 k3hppk@gmail.com 으로 주시면 됩니다.
+
 
 
 
