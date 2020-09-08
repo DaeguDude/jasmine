@@ -279,6 +279,68 @@ switch (weather) {
 // alert('눈온다 이녀석아, 나가지마');
 ```
 
+### 삼항 연산자(Ternary Operator)
+
+마지막으로, 약간 이상한 녀석을 소개해드리겠습니다. 삼항 연산자 혹은 조건 연산자라고 불리는 이 녀석은, 똑같이 조건을 테스트하여, true나 false를 반환합니다.
+이 녀석은 가끔씩 특정한 상황에서 요긴하게 쓰입니다. 그리고 코드가 if나 switch문 보다 훨씬 작습니다.
+
+```javascript
+( 조건 ) ? // true라면, 여기 코드 실행 : 아니면 여기 코드 실행
+```
+
+한 번 예시를 볼게요.
+
+```javascript
+let isHot = false;
+
+let message = ( isHot ) ? '옷 시원하게 입어라' : '재킷 챙겨'
+
+alert(message)
+```
+
+위의 예시에서, 조건 부분에 isHot, false값을 가진 변수를 조건으로 넘겨주고, 만약에 true라면 '옷 시원하게 입어라'를 아니라면 '재킷 챙겨'를 message에 넣어줍니다.
+
+확인해보시면, isHot은 false이기 때문에, '재킷 챙겨'가 message 안에 담겨 있는 것을 확인하실 수 있습니다.
+
+마지막으로, HTML과 CSS를 엮어서 삼항 연산자의 예시를 한 번 볼게요.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="theme">테마를 선택해주세요: </label>
+  <select id="theme">
+      <option value="white">밝은 테마</option>
+      <option value="black">어두운 테마</option>
+  </select>
+
+  <h1>Hㅔㄹ로!</h1>
+</body>
+</html>
+```
+
+```javascript
+  const select = document.querySelector('select');
+  const html = document.querySelector('html');
+
+  function update(bgColor, textColor) {
+    html.style.backgroundColor = bgColor;
+    html.style.color = textColor;
+  }
+
+  select.onchange = function() {
+    ( select.value === 'black' ) ? update('black', 'white') : update('white', 'black');
+  }
+```
+
+이 코드를 실행시켜 보시면, 우리가 밝은 테마, 어두운 테마를 선택할 때마다 그에 맞게 배경과 텍스트 색깔이 바뀝니다. 여기서 우리는 `onchange` 라는 eventListener를 넣어주었는데요. 이것은 select의 선택값이 바뀔때마다 우리가 넘겨준 함수를 실행하여 줍니다. 
+
+우리가 넘겨준 함수에는 삼항연산자가 있죠. 선택된 값이 black이라면, 배경을 어둡고 텍스트 색깔을 하얀색으로, 선택된 값이 white라면, 배경을 밝고 텍스트 색깔을 검은색으로 바꿔줍니다. 보시다시피, 삼항연산자를 쓸 때, 함수를 섞어서 더욱 더 강력하게 써주실 수 있습니다.
 
 
 

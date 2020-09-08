@@ -23,3 +23,8 @@
 
 - [깃허브 페이지부터 만든다(블로그로 기록을 하여야 하기 때문)](https://docs.google.com/document/d/1Wx_TWdIW1nqhHlNYvxkJoNH-6RPp0vxJ3m-9xIod0r8/edit)
 
+## 09/05
+
+JS 수업시작합니다.
+
+
