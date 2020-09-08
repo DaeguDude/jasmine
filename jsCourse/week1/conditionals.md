@@ -159,6 +159,9 @@ if (weather === 'sunny') {
 - `&&` - AND; 두 개나 그 이상의 표현을 묶어서, 그 두개의 표현이 모두 참이라면 `true`를 반환하여 줍니다.
 - `||` - OR; 두 개나 그 이상의 표현을 묶어서, 한 개의 조건이라도 만족한다면 `true`를 반환하여 줍니다.
 
+
+**AND**
+
 아까의 예시를 이용하여, AND를 활용하여 보겠습니다.
 
 ```javascript
@@ -170,6 +173,114 @@ if (weather === 'sunny' && temperature > 30) {
 ```
 
 위의 예시의 아까의 예시와 결과값이 같습니다. if문의 조건은 weather의 값이 'sunny'이고, temperature가 30이상일때만 실행될 것입니다. 두 가지 다 만족을 해야하는 것이죠.
+
+**OR**
+
+이번에는 OR을 쓴 예시를 한 번 볼게요.
+
+```javascript
+let houseTemp = 'cool';
+let houseStatus = 'noisy';
+
+if (houseTemp === 'hot' || houseStatus === 'noisy') {
+    alert('Better go to a cafe?');
+} else {
+    alert('Stay home, save lives');
+}
+
+// Better go to a cafe?
+```
+
+위의 코드는 둘 중에 하나의 조건이라도 만족한다면, if 블락 안에 있는 코드를 실행합니다.
+
+**NOT**
+
+마지막으로 NOT에 대해서 한 번 알아보겠습니다. NOT(!)은 한 표현의 결과값을 반대로 바꾸어줍니다. 참이면 거짓으로, 거짓이면 참으로 말이죠.
+
+```javascript
+let houseTemp = 'cool';
+let houseStatus = 'noisy';
+
+if (!(houseTemp === 'hot' || houseStatus === 'noisy')) {
+    alert('Stay home, save lives');
+} else {
+    alert('Better go to a cafe?');
+}
+```
+
+약간 헷갈릴 수도 있는데 한 번 차근히 보자면,
+
+1. houseTemp === 'hot' 조건을 테스트 합니다. houseTemp 는 'cool'이기 때문에, false를 반환합니다.
+
+2. houseStatus === 'noisy' 조건을 테스트 합니다. houseStatus === 'noisy'는 사실이기 때문에 true를 반환합니다.
+
+3. || 은 둘 중에 하나라도 참이 있다면 true를 반환합니다. 집이 덥거나, 시끄럽다면....이라는 조건이죠. 지금 집이 시끄럽네요.
+
+4. 위의 조건이 true 이지만 **NOT**을 통해, 결과값을 뒤집습니다. False가 되는것이죠.
+그래서 else 문의 코드를 실행합니다.
+
+아마도, 왜 `!`을 쓸까 하실 수도 있는데, 가끔씩 유용할 때도 있습니다. NOT이 포함된 위의 조건문은, '만약 덥지도 않고 시끄럽지도 않다면, 집에 머물러라' 라는 조건입니다.
+
+### 스위치 문(Switch Statements)
+
+`if...else` 문이 조건에 따라 코드를 실행하는데 아주 적절한 역할을 하지만, if...else 문에도 단점은 있습니다. 예를 들자면, 만약에 선택지가 여러개라면 if...else 문은 코드가 엄청 복잡해질 수도 있습니다.
+
+이렇게 선택지가 여러개 일 때는, `switch`문을 써주면 좋습니다. switch문은, 한 개의 표현식이나 값을 인풋으로 받아, 인풋으로 받은 값에 맞는 선택지를 찾을 때까지 코드가 돌아갑니다. 
+
+한 번 볼게요.
+
+```javascript
+switch (expression) {
+    case choice1:
+        // 여기의 코드 작동
+        break;
+    case choice2:
+        // 여기의 코드 작동
+        break;
+    case choice3:
+        // 여기의 코드 작동
+
+    // 원하는 만큼 많이 추가할 수 있습니다.
+
+    default:
+        // 어떤 것도 만족하지 못하면, 그냥 이 코드 작동
+}
+```
+
+1. switch 문이 있습니다.
+2. () 괄호 안에는, 표현식이나, 값이 들어갑니다
+3. case는 ~~~한 경우에라는 말로, 한 개의 선택지를 의미합니다.
+4. 코드가, 만약에 값과 일치한다면, 그 안의 코드를 작동시킵니다.
+5. 그 안의 코드가 작동한뒤, break를 통해 코드를 중지시킵니다.
+6. case(선택지)는 원하는 만큼 넣으실 수 있습니다.
+7. default는 위의 선택지중 어떠한 것도 만족하지 못할때, 그 안의 코드를 작동시키라는 말입니다. if문의 else와 비슷하다고 보시면 됩니다.
+
+여기서 노트는, 사실 default를 딱히 포함 안 시켜주셔도 됩니다. 하지만 어떠한 선택지도 만족시키지 못했을때, 그 예외에 대한 코드를 작동시키고 싶으시다면 포함시켜주시면 됩니다.
+
+**switch 예시**
+```javascript
+let weather = 'snowing';
+
+switch (weather) {
+    case 'sunny':
+        alert('날씨 덥다. 반바지 입어');
+        break;
+    case 'rainy':
+        alert('비온다. 비 바람막이랑 우산 챙겨!');
+        break;
+    case 'snowing':
+        alert('눈온다 이녀석아, 나가지마');
+        break;
+    default:
+        alert('무슨 날씨야..?');
+        break;
+}
+
+// alert('눈온다 이녀석아, 나가지마');
+```
+
+
+
 
 
 
