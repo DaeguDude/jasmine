@@ -23,8 +23,13 @@
 
 - [깃허브 페이지부터 만든다(블로그로 기록을 하여야 하기 때문)](https://docs.google.com/document/d/1Wx_TWdIW1nqhHlNYvxkJoNH-6RPp0vxJ3m-9xIod0r8/edit)
 
-## 09/05
+## Week1
 
-JS 수업시작합니다.
+- [효율적인 공부법](/Users/sanghak/Desktop/jasmine/jsCourse/week1/conditionals.md)
+- [숫자](/Users/sanghak/Desktop/jasmine/jsCourse/week1/number.md)
+- [변수](/Users/sanghak/Desktop/jasmine/jsCourse/week1/variable.md)
+- [문자열](/Users/sanghak/Desktop/jasmine/jsCourse/week1/string.md)
+
+
 
 
