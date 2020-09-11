@@ -30,6 +30,10 @@
 - [변수](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week1/variable.md)
 - [문자열](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week1/string.md)
 
+### 추가적인 자료들
+
+- [커맨드 라인 기본 명령어](https://www.youtube.com/watch?v=mJMUX5Nia_A&ab_channel=DaeguDude)
+
 
 
 
