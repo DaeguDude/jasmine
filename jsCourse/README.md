@@ -35,5 +35,13 @@
 - [커맨드 라인 기본 명령어](https://www.youtube.com/watch?v=mJMUX5Nia_A&ab_channel=DaeguDude)
 
 
+## Week2
+
+- [조건문](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week2/conditionals.md)
+- [함수](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week2/function.md)
+- [개발자 도구](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week2/developerTools.md)
+    - [자바스크립트 디버깅 하기](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week2/debugJS.md)
+
+
 
 
