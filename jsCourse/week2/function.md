@@ -387,6 +387,27 @@ function sayName {
 
 이러한 이유로 여러분의 코드를 함수 안에 넣어둔다거나 등등의 방법들을 이용하여 전역 변수를 최대한 적게 쓰는게 가장 좋은 방법입니다. 더 많은 방법들에 대해서는 뒤에서 더 깊게 설명하도록 하겠습니다.
 
+### 연습문제
+
+1. 두 개의 인수를 받아, 첫번째 인수를 두번째 인수만큼 제곱해주는 함수 power를 만들어주세요.
+
+```javascript
+power(2, 3)   // 8
+power(10, 3)   // 1000
+```
+
+2. 함수를 화살표 함수로 바꾸어 주세요.
+
+```javascript
+function checkAge(age) {
+    if (age < 18) {
+        console.log('당신은 술 못사. 나가.');
+    } else {
+        console.log('당신은 술을 살 수 있습니다. 너무 많이 마시진 마세요.');
+    }
+}
+```
+
 ### 참고사항
 
 많은 내용들은 오픈소스 프로젝트인 [The Odin Project](https://www.theodinproject.com/dashboard)에서 가져온 내용들입니다. 
