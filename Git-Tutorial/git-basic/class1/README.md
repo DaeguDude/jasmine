@@ -4,7 +4,7 @@
 
 ## 깃이란 무엇인가?
 
-깃이란 리눅스 개발 커뮤니티에서 만든 분산 버전 관리 시스템입니다. 여러분도 아시다시피 리눅스는 오픈소스 운영체제로서, 전 세계의 개발자들에 의해서 개발되고 배포되고 있습니다. 옛날에는 리눅스를 압축파일과 패치로써 전하면서 개발하였는데, 효율적이지 못하여 Bitkeeper라는 분산버전관리 시스템을 사용하였죠. 하지만 무료로 사용하던 관계가 틀어지면서, 그들이 직접 분산버전관리 시스템을 개발하게 된 것입니다.
+깃이란 리눅스 개발 커뮤니티에서 만든 분산 버전 관리 시스템입니다. 여러분도 아시다시피 리눅스는 오픈소스 운영체제로서, 전 세계의 개발자들에 의해서 개발되고 배포되고 있습니다. 옛날에는 리눅스를 압축파일과 패치로써 전하면서 개발하였는데, 효율적이지 못하여 Bitkeeper라는 분산버전관리 시스템을 사용하였죠. 하지만 무료로 사용하던 관계가 틀어지면서, 그들이 직접 분산 버전관리 시스템인 깃을 개발하게 된 것입니다.
 
 ## 버전관리시스템(Version Control System)이란?
 
@@ -26,9 +26,9 @@
 
 **문제**
 
-여러분은, 하나의 word 파일에 내용을 저장해왔습니다. 지금 두번째 원고를 완성한 이 시점에, 첫번째 원고를 따로 저장을 해두지 않았기 때문에 다시 그대로 돌릴 방법은 없습니다.... 다시 기억을 더듬으며 1~2달을 수정하는데 시간을 보내야겠죠.
+여러분은 원고를 하나의 word 파일에서 저장해왔습니다. 지금 두번째 원고를 완성한 이 시점에, 첫번째 원고를 따로 저장을 해두지 않았기 때문에 다시 그대로 돌릴 방법은 없습니다.... 다시 기억을 더듬으며 1~2달을 수정하는데 시간을 보내야겠죠.
 
-하지만! 여러분이 버전 관리 시스템을 사용하고 있었다면 이야기는 달라집니다. 버전 관리 시스템은 모든 변화를 기록해주는 마법의 '저장버튼' 이라고 생각해보세요. 여러분이 첫번째 원고를 저장을 하고, "첫번째 원고" 라는 버젼을 만들어 저장을 하였습니다. 그리고 두번째 원고를 완성을 한 뒤, "두번째 원고" 라는 버젼을 만들어 저장을 하였습니다. 버전 관리시스템은 파일의 버젼을 다 기록을 하고 있기 때문에, 그 당시의 버전으로 원한다면 언제나 돌아갈 수 있습니다. 
+하지만! 여러분이 버전 관리 시스템을 사용하고 있었다면 이야기는 달라집니다. 버전 관리 시스템을 모든 변화를 기록해주는 마법의 '저장버튼' 이라고 생각해보세요. 여러분이 첫번째 원고를 저장을 하고, "첫번째 원고" 라는 버젼을 만들어 저장을 하였습니다. 그리고 두번째 원고를 완성을 한 뒤, "두번째 원고" 라는 버젼을 만들어 저장을 하였습니다. 버전 관리시스템은 파일의 버젼을 다 기록을 하고 있기 때문에, 그 당시의 버전으로 원한다면 언제나 돌아갈 수 있습니다. 
 
 그래서 여러분의 보스가 당장 첫번째 원고로 되돌려! 라고 하면 문제 없이 돌릴 수 있는 것이죠.
 
@@ -42,7 +42,7 @@
 
 많은 사람들이 파일을 관리할 때, 보통 파일을 복사해서 다른 폴더에 놔두고는 합니다. 이것이 아주 편하기는 하지만, 실수를 할 확률이 아주 많습니다. 어디에 파일을 복사해 두었는지 잊을 수도 있고, 파일을 지워버릴 수도 있어요. 그래서 이런 이슈를 해결하기 위해서 프로그래머들이 로컬 버전 관리 시스템이라는 것을 개발했습니다. 로컬 버전 관리는 아주 간단한 데이터베이스를 컴퓨터에 만들어 거기에 파일의 변화를 관리하는 시스템입니다.
 
-<!-- 로컬 VCS 사진 -->
+![local-vcs](./img/local-vcs.png)
 
 위의 그림을 보시면, 오른쪽에 버젼을 관리하는 데이터베이스가 있습니다. 그리고 버젼별로 나누어져있어서, 우리가 원하는 버전을 불러와 사용하여 줄 수 있습니다. 이것만으로도 사실 아주 좋습니다. 하지만 이렇게 로컬 버전 관리를 사용하다 보면 문제가 한 가지 생깁니다. 그것이 무엇이라고 생각하시나요?
 
@@ -50,7 +50,7 @@
 
 로컬 버전 관리 시스템을 사용하다 보면 문제가 생기는데, 그것은 사람들이랑 협력을 해야할 경우 입니다. 버전을 관리해주는 데이터베이스가 우리 컴퓨터에만 있기 때문에 사람에게 그것을 전해주려면 아주 힘들겠죠? 그리하여 생겨난 것이 중앙 집중식 버전관리 시스템이라는 것입니다. 이것이 동작하는 방식은, 한 개의 서버가 있고, 그 서버에서 모든 파일의 버전을 관리하며 유저들이 서버에 접근하여 파일을 얻는 방식입니다.
 
-<!-- 중앙집중식 VCS 사진 -->
+![centralized-vcs](./img/centralized-vcs.png)
 
 ### 분산 버전 관리시스템
 
@@ -67,9 +67,6 @@
 
 등등이 있을 것 같습니다.
 
-### 깃허브
-
-<!-- 순서정하기 -->
 
 ## 깃 설치하기
 
@@ -117,7 +114,8 @@ $ man git-config
 
 자, 그러면 이제 깃 레포지터리에 대해 한 번 알아보려 합니다. 깃 레포지터리란 우리 말로 저장소라고도 하는데, 여러분이 깃으로 관리하고 싶은 프로젝트를 담아주는 저장공간이라고 생각하시면 되겠습니다. 여러분은 여러 개의 저장소를 컴퓨터에 가질 수 있습니다.
 
-<!-- 레포지터리 사진 -->
+![repository](./img/repository.png)
+*Credit:NetNinja*
 
 여러분이 레포지터리를 여러분이 진행하고 있는 프로젝트 디렉토리에 생성을 해주면, 최상위 디렉토리에 깃 레포지터리가 생성됩니다. 그렇기 때문에 깃 레포지터리는, 프로젝트 디렉토리 안에서 일어나는 모든 변화를 관찰하고 기록합니다. 그래서 깃에서는, 데이터를 잃어버리기가 아주 어렵다고 얘기를 합니다. 좋은 뜻이겠죠?
 
@@ -125,22 +123,26 @@ $ man git-config
 
 깃에는 커밋이라는 것이 있는데, 특정 저장 시점이라고 보시면 될 것 같습니다. 여러분이 커밋을 하실 때마다, 깃은 현재 여러분의 프로젝트의 상태를 저장시키고 계시는 겁니다.
 
-<!-- 커밋 사진 -->
+![commit](./img/commit.png)
 
 보통 커밋은 여러분이 어떠한 논리적인 기능이나 원하고자 하는 바를 완성하셨을 때 하시면 됩니다. 예를 들어, 우리가 웹사이트를 만들고 있다고 해보죠. 처음에 index.html 파일에 여러가지 태그들을 넣어주겠죠. 첫번째로, 헤더부분이 완성되면 여러분은 커밋을 합니다. 헤더가 완성된 현재 상태의 프로젝트를 저장한다고 보시면 됩니다. 그 다음 푸터를 완성하면, 푸터를 완성한 상태를 저장하고, 이런 식으로 프로젝트를 완성하기 까지 수 많은 상태들을 저장하고 계시는 겁니다.
 
 깃이 아주 좋은 이유가 무엇이냐면, 여러 분이 원한다면, 커밋을 했을 당시의 상태로 마음대로 돌아갈 수 있다는 것입니다. 예를 들어 여러분이 처음 헤더완성 했을 당시의 코드로 돌아가고 싶다면, 여러분은 몇 개의 명령어로 아주 간단하게 돌아가실 수 있습니다.
+
+### 깃허브
+보통 어떠한 프로젝트를 할 때, 혼자서 하는 경우도 있지만 실제로 개발을 시작하면 여러 명과 함께 하는 경우가 많습니다. 우리는 그러면 파일을 어떻게 주고 받을까요?
+깃허브라는 온라인 서비스가 있는데요. 깃허브는 깃 레포지터리를 저장할 수 있게 해주는 무료 웹 서비스입니다. 깃 레포지터리를 유지 및 관리해줍니다. 깃허브에 우리의 레포지터리를 저장함으로써 다른 프로그래머들과 코드를 공유할 수도 있고 서로 같이 프로젝트를 진행할 수도 있겠죠. 깃허브에는 많은 오픈소스 프로젝트들이 있는데요. 말 그대로 프로젝트가 오픈되어 있어, 누구라도 원한다면 프로젝트에 참여하고 기여할 수 있습니다.
 
 ## 깃 레포지터리 생성하기
 
 자, 이제 실제로 깃 레포지터리를 한 번 생성해보겠습니다. 깃 레포지터리를 가지는 시나리오에는 보통 두 가지 시나리오가 있습니다.
 
 1. 버젼 관리 시스템이 적용되지 않은 로컬 폴더를 깃 레포지터리로 바꾸는 방법
-2. 이미 존재하는 깃 레포지터리를 클론(복사) 하는 방법
+2. 깃허브에 존재하는 깃 레포지터리를 클론(복사) 하는 방법
 
 두 개다 순차적으로 한 번 살펴보겠습니다.
 
-### 이미 존재하는 로컬 디렉토리에 레포지터리 생성하기
+### 이미 존재하는 로컬 디렉토리에 레포지터리 생성후 커밋하기
 
 우리는 한 번도 깃을 써보지 않았으니, 아마 컴퓨터에 깃 레포지터리가 없을 것입니다. 그래서 새로운 폴더를 만들어서 깃 레포지터리를 한 번 만들어 보겠습니다.
 
@@ -148,31 +150,32 @@ $ man git-config
 
 ```shell
 $ cd Desktop
-$ mkdir jasmine-calculator
-$ cd jasmine-calculator
+$ mkdir test-calculator
+$ cd test-calculator
 ```
 
-우리는 Desktop 디렉토리에 jasmine-calculator라는 디렉토리를 만들어 주었습니다. 그리고 나서 한 번 ls -la 명령어를 실행해 어떤 것들이 있는지 확인해보죠.
+우리는 Desktop 디렉토리에 test-calculator라는 디렉토리를 만들어 주었습니다. 그리고 나서 한 번 `ls -la` 명령어를 실행해 어떤 것들이 있는지 확인해보죠.
 
 ```shell
-drwxr-xr-x    2 sanghakkim  staff    64 Jul 21 23:15 .
-drwx------@ 109 sanghakkim  staff  3488 Jul 21 23:15 ..
+drwxr-xr-x   2 sanghakkim  staff    64 Sep 22 10:30 .
+drwx------@ 42 sanghakkim  staff  1344 Sep 22 10:30 ..
 ```
 
 여러분은 딱히 아무 것도 없는 것을 확인하실 수 있습니다. 그러면 이제 깃 레포지터리를 한 번 생성해보죠. 아래의 명령어를 입력해주세요.
 
 ```shell
 $ git init
-Initialized empty Git repository in /Users/sanghakkim/Desktop/jasmine-calculator/.git/
+Initialized empty Git repository in /Users/sanghakkim/Desktop/test-calculator/.git/
 ```
 
 빈 레포지터리가 성공적으로 생성되었다고 출력될 것입니다. 그리고 나서 다시 ls -la 명령어를 실행해보면,
 
 ```shell
 $ ls -la
-drwxr-xr-x    3 sanghakkim  staff    96 Jul 21 23:16 .
-drwx------@ 109 sanghakkim  staff  3488 Jul 21 23:15 ..
-drwxr-xr-x   10 sanghakkim  staff   320 Jul 21 23:16 .git
+total 0
+drwxr-xr-x   3 sanghakkim  staff    96 Sep 22 10:31 .
+drwx------@ 42 sanghakkim  staff  1344 Sep 22 10:30 ..
+drwxr-xr-x  10 sanghakkim  staff   320 Sep 22 10:31 .git
 ```
 
 최상위 디렉토리에 깃 레포지터리가 생성되었음을 알 수 있습니다. 이제 몇 가지 파일들을 한 번 추가해볼게요.
@@ -192,14 +195,17 @@ $ git add index.html
 ```shell
 $ git status
 On branch master
+
 No commits yet
+
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
- new file:   index.html
+	new file:   index.html
+
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
- script.js
- style.css
+	script.js
+	style.css
 ```
 
 보시면 index.html 파일이 Changes to be Committed라는 란에 들어가 있는 게 보이실 겁니다. 이 말은 깃이 index.html 파일을 추적하기 시작하였고, 커밋을 할 준비가 완료되었다는 말입니다.
@@ -208,13 +214,16 @@ Untracked files:
 ```shell
 $ git add .
 $ git status
+
 On branch master
+
 No commits yet
+
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
- new file:   index.html
- new file:   script.js
- new file:   style.css
+	new file:   index.html
+	new file:   script.js
+	new file:   style.css
 ```
 
 모든 파일이 커밋을 할 준비가 완료되었다고 나타납니다.
@@ -222,8 +231,8 @@ Changes to be committed:
 자 그러면, 우리는 이제 커밋을 해주기만 하면 됩니다. `git commit` 명령어를 통해 하실 수 있습니다.
 
 ```shell
-$ git commit -m "Our First Commit"
-[master (root-commit) b940732] Our First commit
+$ git commit -m "Initial Commit"
+[master (root-commit) e5b72eb] Initial Commit
  3 files changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 index.html
  create mode 100644 script.js
@@ -232,38 +241,76 @@ $ git commit -m "Our First Commit"
 
 보통 커밋을 할 때는 메세지를 추가 시키는데, 여러분의 파일 상태에 맞는 메세지를 추가시켜주는 것이 아주 중요합니다. 금방 같은 경우에는, 우리가 파일을 생성하고 첫번째 커밋을 하였기 때문에 First Commit이라는 메세지를 넣어주었습니다. 예를 들어, 여러분이 css를 사용해 헤더 디자인을 완성했다고 합시다. 그리고 나서 커밋을 한다면 git commit -m “Finished the header design” 처럼 의미있는 나중에 알아보기 쉬운 메세지를 꼭 입력해주세요.
 
-마지막으로 git log 명령어를 통하여, 커밋 기록들을 살펴보실 수 있습니다.
+마지막으로 `git log` 명령어를 통하여, 커밋 기록들을 살펴보실 수 있습니다.
 
 ```shell
 $ git log
-commit b9407321a8e52eb1651c04db7c99a1d59bc0efeb (HEAD -> master)
-Author: SangHak <k3hppk@gmail.com>
-Date:   Tue Jul 21 23:30:00 2020 +0900
+commit e5b72eb951cceeacec8aaf222de312c34c5802ce (HEAD -> master)
+Author: Daegudude <k3hppk@gmail.com>
+Date:   Tue Sep 22 10:32:46 2020 +0900
 
-Our First commit
+Initial Commit
 ```
+
+이제 우리는 우리가 원하는 폴더에 성공적으로 버전 관리 시스템을 적용을 하였습니다. 이것만으로도 좋지만, 만약 온라인에 클라우드 서비스처럼 저장을 할 수 있다면 더욱 더 좋겠죠? 우리는 깃 레포지터리를 저장할 수 있는 깃허브에 우리 레포지터리를 한 번 올려보도록 하겠습니다.
+
+### 깃허브에 올리기
+
+[깃허브](https://github.com/)를 사용하려면 먼저 깃허브 가입을 해야합니다. 깃허브에 가입을 하신 뒤, 이제 레포지터리를 생성해줄 것입니다. 깃허브의 레포지터리란으로 가셔서, new를 누르면 아래의 그림이 나타날 것입니다.
+
+![github](./img/github-repo.png)
+
+그리고, 우리의 컴퓨터에 있는 레포지터리와 똑같은 이름인 `test-calculator`를 적어주고, Create repository를 눌러주세요. 지금 깃허브에 생성중인 레포지터리 이름은 사실 우리의 컴퓨터의 있는 레포지터리의 이름과 일치하지 않아도 되지만, 일관성을 위해서 우리는 똑같이 해주겠습니다.
+
+레포지터리를 생성을 하시면 밑의 그림이 나타날 것입니다.
+
+![connect-github-repo](./img/connect-github-repo.png)
+
+우리가 방금 생성한 깃허브 레포지터리와, 우리의 컴퓨터에 있는 레포지터리를 연결시켜주려면 우리는 **..or push an existing repository from the command line**을 따라 하면 됩니다.
+
+```shell
+$ git remote add origin git@github.com:DaeguDude/test-calculator.git
+```
+
+우리의 커맨드라인으로 돌아와, test-calculator에서 `git remote add`를 이용해 로컬 레포지터리와 깃허브 레포지터리를 연결시켜줍니다.
+
+```shell
+git branch -M master
+```
+
+그 다음, 마스터 브랜치로 이동을 합니다. 아마도 이미 마스터 브랜치에 있을텐데, 한 번 더 확실하게 해주는 것이 좋겠죠. **브랜치** 라는 것을 아직은 모르셔도 됩니다. 조금 뒤에서 다룰테니 일단 따라해주세요.
+
+```shell
+git push -u origin master
+```
+
+그리고 마지막으로, `git push` 를 이용해 깃허브 레포지터리에 우리 로컬 레포지터리의 내용을 업로드 시켜줍니다. 그리고 나서 깃허브를 확인해보시면 파일이 올라온 것을 확인해 보실 수 있습니다.
+
+
+![github-upload-completed](./img/github-upload-completed.png)
+
 
 ### 깃 레포지터리 클론하기
 
-위에서는 이미 존재하는 폴더에 깃 레포지터리를 생성해보았는데요. 이번에는 이미 존재하는 깃 레포지터리를 우리 컴퓨터로 복사해오는 방법을 진행해 보려 합니다. 이것에 언제 유용하냐면은, 예를 들어 여러분이 어떤 사람의 프로젝트를 여러분의 프로젝트에 시작점으로 삼는다거나, 코드 등을 참조할 때 사용할 수 있습니다.
+위에서 우리는 컴퓨터에서 로컬 레포지터리를 생성하고, 작업 내용을 깃허브의 레포지터리로 업로드 시켜주는 작업을 해보았습니다. 이번에는 이미 존재하는 깃 레포지터리를 우리 컴퓨터로 복사해오는 방법을 진행해 보려 합니다. 이것을 **클론**을 한다고 얘기합니다. 이것이 언제 유용하냐면은 여러분이 어떤 사람의 프로젝트를 여러분의 프로젝트에 시작점으로 삼는다거나, 코드 등을 참조할 때 사용할 수 있습니다.
 
-제가 깃허브에 올려둔 jasmine-calculator 레포지터리를 한 번 복사해보겠습니다. 먼저 jasmine-calcaultor 링크<!--링크넣기 -->를 눌러, 저의 레포지터리로 한 번 가볼게요.
+제가 깃허브에 올려둔 레포지터리 [repo-to-clone](https://github.com/dowonhak/repo-to-clone/tree/master)을 한 번 복사해보겠습니다. 
 
-<!-- 클론하는 사진 -->
+![repo-clone](./img/repo-clone.png)
 
 위의 상단에 보시면, HTTPS로 클론하기 라는 것이 있습니다. Code를 클릭하셔서 주소를 복사하시면 됩니다. 그리고 다시 터미널로 돌아와서, 아래의 명령어와 함께 아까 복사한 주소를 같이 입력해줍니다.
 
 ```shell
-$ git clone https://github.com/DaeguDude/jasmine-calculator
-Cloning into 'jasmine-calculator'...
-remote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 5 (delta 1), reused 5 (delta 1), pack-reused 0
-Unpacking objects: 100% (5/5), done.
+$ git clone https://github.com/dowonhak/repo-to-clone.git
+Cloning into 'repo-to-clone'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), done.
 ```
 
-이렇게 해주면, 위처럼 성공적으로 클론이 완료되었다는 출력물이 나올 것입니다. 그리고 나서 확인을 해보시면 저희 컴퓨터에 jasmine-calculator라는 이름의 폴더가 생성이 되어있을 것입니다. git clone 이 해주는 일은, jasmine-calculator라는 프로젝트를 내려 받으면서, .git이라는 서브폴더를 생성한 후 그 레포지터리 안의 모든 히스토리를 내려받습니다. 확인해보시면 아까 제가 작성한 모든 파일들이 있는 것을 확인해 보실 수 있을 것입니다.
+이렇게 해주면, 위처럼 성공적으로 클론이 완료되었다는 출력물이 나올 것입니다. 그리고 나서 확인을 해보시면 저희 컴퓨터에 repo-to-clone 이라는 이름의 폴더가 생성이 되어있을 것입니다. `git clone` 이 해주는 일은, repo-to-clone 이라는 프로젝트를 내려 받으면서, .git이라는 서브폴더를 생성한 후 그 레포지터리 안의 모든 히스토리를 내려받습니다. 확인해보시면 깃허브 레포지터리에 있는 파일들이 그대로 여러분의 컴퓨터에 있는 것을 확인하실 수 있습니다.
 
 ## 깃의 세가지 상태
 
@@ -280,222 +327,65 @@ Unpacking objects: 100% (5/5), done.
 - 스테이징 공간(Staging Area)
 - 깃 디렉터리(Git Directory)
 
-<!-- 세가지 단계에 대한 사진 -->
+![3-stages](./img/3-stages.png)
 
-워킹 디렉터리는 프로젝트의 특정 버전을 가져온 상태입니다. 예를 들어, 여러분이 첫번째 커밋을 했을 때, 그 특정 버전을 가져와 워킹 디렉터리를 생성합니다. 그러므로 여러분이 처음에 깃 레포지터리를 생성하면 워킹 디렉터리는 없는 상태죠. 워킹 디렉터리는 여러분이 프로젝트를 수정하는 공간입니다.
+그러면 실제 예시를 통해, 한 번 더 자세히 설명해보도록 하겠습니다.
 
-다음으로 스테이징 공간은, 여러분이 워킹 디렉터리에서 수정을 마치고, 커밋을 할 준비를 할 때, 파일들을 스테이징 공간으로 넘겨줍니다. 우리는 이것을 stage한다고 얘기를 합니다. 지금 이 공간에 있는 상태가, 여러분이 커밋을 했을 때 저장될 상태입니다.
+워킹 디렉토리는 프로젝트의 특정 버전을 가져온 상태입니다. 여러분의 마지막 버전을 참고해서 워킹 디렉토리로 가져오게 되죠. 그러므로 여러분이 처음에 깃 레포지터리를 생성하면 워킹 디렉토리는 없는 상태죠. 워킹 디렉터리는 여러분이 프로젝트를 수정하는 공간입니다.
 
-마지막으로 여러분이 커밋을 하면, 스테이징 공간에 있는 상태가 깃 디렉터리에 영구적으로 저장될 것입니다.
-
-이렇게 깃의 파일의 상태와 세 가지 단계는 요긴하게 연결되어 있습니다. 워킹 디렉토리에서 수정된 파일은 수정된(modified) 상태이고, 스테이징 공간으로 넘어온 파일은 준비된(staged) 상태이고, 마지막으로 깃 디렉터리에 있는 파일들은 완료된(committed) 상태입니다.
-
-## 깃허브에 올리기
-
-여러분이 이때까지 작업한 깃은 어떻게 보면 모두 다 여러분의 컴퓨터에서 이루어졌습니다. 하지만, 다른 사람들과 작업을 하려면 레포지터리가 여러분의 컴퓨터에만 있으면 안되겠죠? 여러분이 작업을 한 것을 올려야 될 것입니다. 아까도 언급했지만, 깃허브가 온라인 서비스이며 레포지터리 저장을 무료로 해줍니다.
-
-먼저 서비스를 사용하려면, 깃허브에 가입을 해야합니다. 깃허브에 가입부터 해봅시다.
-
-깃허브 가입을 완료하고 나서, 레포지터리를 생성해줄 것입니다. 아까 제가 만든 계산기 프로젝트말고, 여러분의 계산기 프로젝트를 한 번 직접 생성해볼게요. 깃허브의 레포지터리란으로 가셔서, new를 누르시면 아래의 그림이 뜰 것입니다.
-
-<!-- 레포지터리 생성 사진 -->
-
-Repository name에 여러분이 원하시는 레포지터리의 이름을 적어주면 됩니다. 하지만 주의해야할 점은 여러분의 프로젝트에 알맞는 이름을 작성해주세요. 그리고 나서, Create repository를 눌러주면 레포지터리가 생성될 것입니다.
-
-레포지터리가 생성된 후에, 두 가지 안내문이 뜰 것입니다. 이것은 두 가지 시나리오에 따른 방법인데, 첫번째 방법은 여러분의 컴퓨터에 깃 레포지터리가 없을 때의 시나리오 입니다. 그리고 두 번째 시나리오는, 이미 깃 레포지터리가 여러분의 컴퓨터에 있고, 그냥 연결을 시켜주고 싶을 때의 상황입니다.
-
-<!-- 레포지터리 생성 후 사진 -->
-
-저희는 이미 깃 레포지터리가 우리의 컴퓨터에 있는, 두번째 시나리오를 한 번 따라가보도록 할게요. 먼저 calculator라는 폴더를 만들고, 거기로 이동해주세요.
+먼저, 커맨드 라인에서 repo-to-clone 폴더로 이동을 해주세요. 그리고나서 `git status` 라는 명령어를 입력하여주세요.
 
 ```shell
-$ mkdir calculator
-$ cd calculator
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
 ```
 
-그런 다음, 계산기에 필요한 몇 가지 파일을 집어넣어줄게요.
+지금 여러분은 워킹 디렉토리에 있는데, 아무것도 변한 것이 없기 때문에 깃에서 워킹디렉토리가 깨끗하다고 얘기를 하여줍니다. 그러면 파일을 약간 수정하여, 한 번 어떻게 변하는지 확인해볼게요. calc.js 파일의 subtract 함수의 `return num1 - num2;` 문을 `console.log(num1 - num2);`로 바꾸어줍니다. 그리고 나서 다시 `git status`를 실행해볼게요.
 
 ```shell
-$ touch index.html style.css calc.js
+$ git status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   calc.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-그리고 이 프로젝트에 대한 정보를 README.md 파일에 생성하여 적어줍니다.
+calc.js 파일이 수정된 상태(modified)로 있는 것을 확인하실 수 있습니다. 여러분은 지금 워킹 디렉토리에서 작업을 하고 있습니다. 그러면 이제 스테이징 공간으로 옮겨갈게요. 스테이징 공간은 커밋을 할 준비가 된 파일들을 넘겨주는 공간입니다. `git add` 명령어를 쓰셔서, 스테이징 공간으로 파일을 옮기고, 다시 상태를 확인해볼게요.
 
 ```shell
-$ echo "# 계산기 프로젝트" >> README.md
+$ git add calc.js
+$ git status
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   calc.js
 ```
 
-그리고 이제 마지막으로, 깃 레포지터리를 생성하고 모든 파일을 커밋해줍니다.
+그러면 Changes to be commited란에 calc.js 파일이 있는 것을 확인하실 수 있습니다. calc.js 파일은 지금 스테이징 공간에 있습니다. 커밋을 할 준비가 되어있다는 것이죠.
+
+그리고 이제 마지막으로 깃 디렉터리로 옮겨주겠습니다. `git commit`을 사용해주시면 됩니다.
 
 ```shell
-$ git init 
-$ git add -A
-$ git commit -m "First Commit"
+$ git commit -m "subtract function modified"
+[master 7e88b08] subtract function modified
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
-자, 그러면 지금 여러분의 컴퓨터에 있는 깃 레포지터리는 완성이 되어있습니다. 하지만 여러분의 컴퓨터에 있는 레포지터리를 깃허브에 있는 레포지터리와 연결시켜주지 않았죠. 이제 연결시켜보겠습니다. 여러분의 깃허브 레포지터리에 들어가면 뜨는 안내문에서 두번째 것을 따라하겠습니다.
+커밋이 성공하면, 스테이징 공간에 있는 파일들이 깃 디렉터리에 영구적으로 저장될 것입니다.
 
-```shell
-$ git remote add origin git@github.com:DaeguDude/calculator.git
-```
-
-그리고 나서 제대로 추가가 되었는지 확인해보아야겠죠?
-
-```shell
-$ git remote -v
-origin git@github.com:DaeguDude/calculator.git (fetch)
-origin git@github.com:DaeguDude/calculator.git (push)
-```
-
-그러면 여러분의 깃허브에 있는 레포지터리가 컴퓨터에 있는 레포지터리와 연결되었음을 확인하실 수 있을 것입니다. 이제 마지막으로 깃허브 레포지터리에 올려주기만 하면됩니다. git push 명령어를 통해 올려줄 수 있습니다.
-
-```shell
-$ git push -u origin master
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 6 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (4/4), 305 bytes | 305.00 KiB/s, done.
-Total 4 (delta 0), reused 0 (delta 0)
-To github.com:DaeguDude/calculator.git
- * [new branch]      master -> master
-Branch 'master' set up to track remote branch 'master' from 'origin'.
-```
-
-그리고 나서 여러분의 깃허브 레포지터리를 확인해보시면, 여러분의 커밋이 성공적으로 올라간 것을 확인해보실 수 있습니다.
-
-<!-- 커밋 성공후의 사진 -->
-
-## 깃 일반적인 작업흐름도(브랜치)
-
-이번에는 깃의 일반적인 작업흐름에 대해서 배워볼까 합니다. 제가 처음에 설명드렸듯이, 깃은 메인 코드베이스를 망치지 않고 새로운 기능을 개발할 수 있다고 하였습니다. 이것을 가능하게 하는 것이 브랜치라는 것인데요. 보통 개발을 할 때, 어떠한 기능을 구현하고자 할 때 그 기능에 맞는 브랜치를 만들고 그 환경에서 작업을 시작합니다.
-
-### 브랜치 생성
-
-그러면 브랜치를 한 번 생성해보겠습니다.
-
-```shell
-$ git branch calc-divide
-$ git checkout calc-divide
-Switched to branch 'calc-divide'
-```
-
-먼저, `git branch` 명령어를 통해 calc-divide라는 나누기에 관련된 기능을 개발할 브랜치를 만들어주고, `git checkout` 을 통해 그 브랜치로 이동을 해줍니다.
-
-한 번 제대로 이동이 되었는지 확인해볼게요. `git branch` 명령어를 아무 인수없이 입력해주면, 현재있는 모든 브랜치가 나타납니다.
-
-```shell
-$ git branch
-* calc-divide
-  master
-```
-
-그리고 나서, VScode로 가서 작업을 합니다. 작업이 끝나고 난 뒤, 이제 그 브랜치에서 새로운 커밋을 만들어주면 됩니다.
-
-```shell
-$ git add -A
-$ git commit -m "Divide Function"
-[calc-divide 1fea8f5] Divide Function
- 1 file changed, 4 insertions(+)
-```
-
-이제 커밋을 완료했으니, 우리 깃허브 레포지터리에도 이 커밋을 업데이트 해주어야 합니다. 이렇게 브랜치를 나누어서 작업을 해주는 이유는, 메인 코드베이스를 망치지 않고 작업을 하기 위해서입니다. 브랜치가 나누어져있으면 이제 나중에 코드가 잘 작동하는지 테스트 할 때 아주 유용하죠.
-
-그러면, 깃허브 레포지터리에도 업데이트를 해주겠습니다.
-
-```shell
-$ git push -u origin calc-divide
-To github.com:DaeguDude/calculator.git
- * [new branch]      calc-divide -> calc-divide
-Branch 'calc-divide' set up to track remote branch 'calc-divide' from 'origin'.
-```
-
-업데이트를 하고 나서 깃허브 레포지터리로 가서 한 번 확인을 해보면, 제대로 업로드 된 것을 확인하실 수 있을 겁니다.
-
-그리고 또한, 컴퓨터에서 깃허브 레포지터리에 어떤 브랜치가 있는지도 확인해 줄 수 있습니다. git branch -a 명령어는, 여러분의 로컬 레포지터리와 연결되어있는 레포지터리의 모든 브랜치를 보여줍니다.
-
-```shell
-$ git branch -a
-* calc-divide
-  master
-  remotes/origin/calc-divide
-  remotes/origin/master
-```
-
-총 4개의 브랜치가 있는 것이 확인되실 겁니다.
-
-### 브랜치 합치기
-
-여러분이 이제 calc-divide 브랜치에서 모든 것을 완료했다고 가정해봅시다. 어떤 번호를 집어넣어도 나누기가 제대로 되기 때문에 이제 이 기능은 메인 코드베이스에 합치면 됩니다. 저희 메인 코드베이스는 master 브랜치니까 거기로 한 번 합쳐보겠습니다.
-
-먼저, master 브랜치로 이동해줍니다.
-
-```shell
-$ git checkout master
-$ git pull origin master
-From github.com:DaeguDude/calculator
- * branch            master     -> FETCH_HEAD
-Already up to date.
-```
-
-그리고 git pull origin master를 통해, 여러분이 calc-divide에서 작업하고 있었던 동안, 다른 사람이 master 브랜치에 새로운 코드를 업데이트 했을 수도 있으니 그 코드를 내려받아 여러분의 코드와 합칩니다.
-
-그리고 나서, 여러분의 master 브랜치에 이때까지 합쳐진 브랜치가 있는지 확인해봅시다.
-
-```shell
-$ git branch --merged
-* master
-```
-
-이 때까지 아무것도 합치지 않았으니, master 브랜치만 나타날 것입니다. 이제, calc-divide 브랜치를 master 브랜치로 합쳐줄 시간입니다.
-
-```shell
-$ git merge calc-divide
-Updating 2508a62..1fea8f5
-Fast-forward
- calc.js | 4 ++++
- 1 file changed, 4 insertions(+)
-```
-
-Fast-forward를 통해, 합쳐진 것을 확인해 보실 수 있습니다. 혹시 모르니 명령어를 통해 살펴보죠.
-
-```shell
-$ git branch --merged
-  calc-divide
-* master
-```
-
-성공적으로 합쳐졌습니다. 하지만, 새로운 master 브랜치는 여러분의 컴퓨터에만 있는 것이지, 깃허브 레포지터리에 업데이트 되지 않았습니다. 그러므로 업데이트를 해주어야 겠죠.
-
-```shell
-$ git push origin master
-```
-
-저희는 나누기 기능을 이제 개발을 끝내었기 때문에, 그 브랜치가 이제 필요가 없습니다. 그래서 브랜치를 지워주어야 합니다.
-
-```shell
-$ git branch -d calc-divide
-Deleted branch calc-divide (was 1fea8f5).
-```
-
-그러면 성공적으로 브랜치가 지워졌다고 뜰 것입니다. 그러면 어떤 브랜치들이 남아있는지 다시 한 번 확인해볼까요?
-
-```shell
-$ git branch -a
-* master
-  remotes/origin/calc-divide
-  remotes/origin/master
-```
-
-아차, 아직 깃허브 레포지터리에 있는 calc-divide 브랜치가 남아있음을 알 수 있습니다. 이것도 필요가 없으니 지워주는게 맞겠죠?
-
-```shell
-$ git push origin --delete calc-divide
-To github.com:DaeguDude/calculator.git
- - [deleted]         calc-divide
-```
-
-깃에서 할 수 있는 기본적인 것들에 대해서 한 번 다루어보았습니다.
+깃이 무엇이고, 기본적인 깃의 사용방법에 대해서 한 번 알아보았습니다. 다음에는 브랜치에 대해서 한 번 알아보겠습니다.
 
 ### 참고사항
 
