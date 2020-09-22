@@ -44,8 +44,12 @@
 
 ## Week3
 
-- [문제해결]()
+- [문제해결](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week3/problemSolving.md)
 - [깃 기초](https://github.com/DaeguDude/jasmine/tree/master/Git-Tutorial/git-basic/class1)
+
+## 프로젝트(가위바위보)
+
+[가위바위보 프로젝트](https://github.com/DaeguDude/jasmine/tree/master/jsCourse/project/rockPaperScissor)
 
 
 
