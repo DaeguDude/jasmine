@@ -44,7 +44,7 @@ console.log(playRound(playerSelection, computerSelection));
 
 ## 여러분들의 프로젝트
 
-pull request를 이용하여, 이 문서를 편집하셔서 여러분의 프로젝트 레포지터리 링크를 걸어주시면 됩니다.
+이 문서를 편집하시고, pull request를 이용하시어 여러분의 프로젝트 레포지터리 링크를 걸어주시면 됩니다.
 
 <!-- 이 밑으로 열 -->
 
