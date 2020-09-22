@@ -42,6 +42,12 @@
 - [개발자 도구](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week2/developerTools.md)
     - [자바스크립트 디버깅 하기](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week2/debugJS.md)
 
+## Week3
+
+- [문제해결]()
+- [깃 기초](https://github.com/DaeguDude/jasmine/tree/master/Git-Tutorial/git-basic/class1)
+
+
 
 
 
