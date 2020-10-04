@@ -50,3 +50,6 @@ console.log(playRound(playerSelection, computerSelection));
 
 [상학 가위바위보](https://github.com/DaeguDude/rock-paper-scissors) - [라이브로 보기](https://daegudude.github.io/rock-paper-scissors/)
 
+ㅇ
+
+ㅇㄹ
