@@ -2,6 +2,8 @@
 
 자바스크립트 강의입니다.
 
+
+
 ## Week1
 
 - [효율적인 공부법](https://medium.com/@k3hppk/%EA%B3%B5%EB%B6%80%EB%B2%95-1fd273560d19)
@@ -30,7 +32,9 @@
 
 [가위바위보 프로젝트](https://github.com/DaeguDude/jasmine/tree/master/jsCourse/project/rockPaperScissor)
 
+## 프로젝트 pull request 하는 법
 
+[pull request 하는 법](https://www.youtube.com/watch?v=-WpdlsXTK6k&feature=youtu.be&ab_channel=DaeguDude)
 
 
 
