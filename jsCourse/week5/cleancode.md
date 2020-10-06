@@ -82,6 +82,8 @@ const sum = numOne + numTwo(numOne + numTwo).toString()
 
 3. 줄 길이(Line Length): 줄 길이도 여러가지의 스타일 가이드에서 여러가지의 선택지를 제안합니다. 하지만 스타일 가이드들에서의 하나의 공통점은 모두 다 줄 길이를 제한하는 것을 추천한다는 것입니다. 어느정도에서 제한하는 것은 여러분의 선택이지만, 보통 80자 정도에서 끊어주면 괜찮습니다. 그리고 두번째 줄은 항상 연산자로 시작하고 들여쓰기를 2번 해주시는게 좋습니다.
 
+하지만! 최근에는 디스플레이가 훨씬 넓어지고 스타일이 다양해짐에 따라 80자에서 제한하는 것은 개인적인 취향입니다. 여러분에 알맞는 스타일로 하셔도 되지만 너무 길게만 하지마세요.
+
 ```javascript
 let reallyReallyLongLine = something + somethingElse + anotherThing
     + howManyTacos + oneMoreReallyLongThing;
