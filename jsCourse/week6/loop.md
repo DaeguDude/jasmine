@@ -1,15 +1,5 @@
 # 반복문
 
-<!-- 
-- Keep me in the loop
-- Why bother?
-- The Standard For loop
-- Exiting Loop with Break
-- Skipping with continue
-- while and do...while
-- Example
--->
-
 프로그래밍 언어는 반복적인 일을 수행하는 데 있어 무척이나 유용합니다. 예를 들어서 간단한 연산부터 아니면 특정한 똑같은 상황을 반복하는 것과 같은 것처럼 말이죠. 이번에는 그러한 일을 수행할 수 있게 해주는 자바스크립트의 반복 구조에 대해서 한 번 알아보겠습니다. 
 
 ## Keep mp in the loop
