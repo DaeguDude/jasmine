@@ -53,21 +53,15 @@
 
 ### 유용한 사이트 
 
-## 자바스크립트 튜토리얼  동영상 강좌
+[생활코딩](http://opentutorials.org) 
 
-**생활코딩** : http://opentutorials.org 
+대한민국 최강 웹개발 입문 동영상 튜토리얼 사이트 . html/css , javascript , node.js , php, Oauth 등 다양한 예제가 한국어로 준비되어 있고 윈도우 사용자를 위한 배려도 일부 존재 . 
 
-자스민 이종호, 이진욱, 김언동, 김상학, 엄성현 등 많은 사람들이 추천하는 명실상부 대한민국 최강 웹개발 입문 동영상 튜토리얼 사이트 . html/css , javascript , node.js , php, Oauth 등 다양한 예제가 한국어로 준비되어 있고 윈도우 사용자를 위한 배려도 일부 존재 . 
-
-## 자바스크립트 및 CSS 상세 설명
-
-**MDN** : https://developer.mozilla.org/ko/
+[MDN](https://developer.mozilla.org/ko/)
 
 다양한 html/css , javascript 에 태그, 선택자, 함수 설명 등 기본 예제 또한 존재하여 이 분야의 사람이라면 자주 방문하는 사이트 
 
-## 자바스크립트 국내 사용자 모임 
-
-**JavascriptForum** : https://jsdev.kr 
+[JavascriptForum](https://jsdev.kr)
 
 국내 자바스크립트 사용자들이 다양한 이슈에 대해 한국어로 질문하고, 설명해주는 공간 . 예전에는 리액트 외에도 앵귤러, 제이쿼리 등 활발히 질문하고 답변 해주었으나, 앵귤러, 뷰, 제이쿼리는 인기가 적다. 
 
