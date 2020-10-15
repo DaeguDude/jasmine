@@ -36,6 +36,21 @@
 
 [pull request 하는 법](https://www.youtube.com/watch?v=-WpdlsXTK6k&feature=youtu.be&ab_channel=DaeguDude)
 
+## Week 4
+
+추석
+
+## Week 5
+
+- [클린 코드](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week5/cleancode.md)
+
+## Week 6
+
+<!-- 반복문 고칠 것 있음 -->
+
+- [배열](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week6/array.md)
+- [반복문](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week6/loop.md)
+
 ### 유용한 사이트 
 
 ## 자바스크립트 튜토리얼  동영상 강좌
