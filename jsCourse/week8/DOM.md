@@ -74,5 +74,113 @@ DOM에 대한 기초를 알아보았으니, 이제 DOM을 이용해서 어떻게
 
 CSS 선택자 문법은 css에서 사용되는 문법으로 어떠한 요소에 스타일을 줄 때 사용이 되죠.
 
+- 태그(Tag): 선택자 `p`는 `<p></p>` HTML tag를 찾습니다.
+
+- 클래스(Class): 선택자 `.myDiv`는 `class="myDiv"`라는 값을 가진 모든 원소를 찾습니다.
+
+- 아이디(Id): 선택자 `#list`는 `id=list` 라는 값을 가진 원소를 찾습니다.
+
+**관계형 선택자**
+
+관계형 선택자는 노드간의 관계를 통해 DOM 트리를 탐색할 수 있는 방법을 제공합니다. 이러한 관계들은 노드의 속성으로 저장되어 있습니다. 노드에 속한 아래의 속성들을 이용하여 우리는 DOM 트리를 탐색할 수 있습니다.
+
+- `parentNode`
+- `firstChild`
+- `lastChild`
+- `nextSibling`
+- `previousSibling`
+
+## CSS 선택자로 노드에 접근하기
+
+원소를 선택하는 두 가지의 방법을 알아보았으니 이제는 실제로 주어진 방법을 이용하여 노드에 접근을 하여 볼게요. 아까 얘기하였듯이, `document` 객체는 DOM 트리에서 항상 최상단에 위치한 객체입니다. 그러므로 다른 객체들에 접근을 하려면 먼저 `document` 객체에 접근을 하여야 합니다.
+
+DOM 인터페이스는 웹 페이지를 자바스크립트로 조작하기 위한 속성과 메쏘드들을 제공합니다. 가장 먼저, `.querySelector()` 메쏘드에 대해서 한 번 알아보겠습니다. `.querySelector()` 메쏘드는 주어진 선택자에 맞는 첫번째 원소를 반환합니다. 만약, 어떠한 원소도 주어진 선택자와 매칭이 되지 않는다면 `null`을 반환하죠.
+
+`.querySelector()` 메쏘드는 CSS 선택자를 인수로 받기 때문에 가장 일반적으로 많이 쓰입니다. 왜냐하면 태그, 클래스, 그리고 아이디 등 어떤 것을 사용하여도 원소에 접근을 할 수 있기 때문이죠. 아주 유연합니다.
+
+아까의 예제를 조금 바꿔서 한 번 보겠습니다.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=5, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <ul class="player-list">
+      <li id="mesi" class="player">메씨</li>
+      <li id="buyol" class="player">부욜</li>
+      <li id="puque" class="player">푸케</li>
+    </ul>
+  </div>
+</body>
+<script src="script.js"></script>
+</html>
+```
+
+```javascript
+const playerList = document.querySelector(".player-list");
+
+console.log(playerList);
+// <ul class="player-list">...</ul>
+```
+
+위의 예제에서는 `class="player-list"` 라는 값을 가진 가장 첫번째 원소를 찾을 것입니다. 그리하여, `playerList`를 확인해보면 `class="player-list"` 값을 가진 `ul` 태그가 반환되신 것을 확인하실 수 있습니다.
+
+아니면, CSS 선택자를 통하여 매칭되는 ID를 찾아 원소를 찾아낼 수도 있습니다.
+
+```javascript
+const mesi = document.querySelector("#mesi");
+
+console.log(mesi);
+// <li id="mesi">...</li>
+```
+
+만약에 주어진 CSS 선택자와 매칭이 되는 모든 원소를 찾고 싶다면 `.querySelectorAll()` 메쏘드를 사용하여 주시면 됩니다. `.querySelectorAll()`는 CSS 선택자와 매칭이 되는 모든 원소들을 노드 리스트로 반환을 하여 줄 것입니다.
+
+```javascript
+const players = document.querySelectorAll(".player");
+
+console.log(players);
+// NodeList(3) [li#mesi.player, li#buyol.player, li#puque.player]
+```
+
+<!-- 제목을 바꿔야 할 듯 싶다 -->
+## CSS 기본 메쏘드로 노드에 접근하기
+
+자바스크립트는 DOM 노드를 선택하기 위한 또 다른 메쏘드들을 제공합니다.
+
+- `.getElementsByTagName()`: HTML 태그를 인수로 받아, 인수로 받은 태그와 동일한 모든 태그를 반환합니다.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=5, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <ul class="player-list">
+      <li id="mesi" class="player">메씨</li>
+      <li id="buyol" class="player">부욜</li>
+      <li id="puque" class="player">푸케</li>
+    </ul>
+  </div>
+</body>
+<script src="script.js"></script>
+</html>
+```
+
+만약의 위의 예시에서, 모든 `li` 태그를 찾고 싶다면, `li`를 인수로 넘겨주면 되겠죠.
+
+```javascript
+const allLis = document.getElementsByTagName('li');
+```
+
 
 
