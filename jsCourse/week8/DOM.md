@@ -153,7 +153,12 @@ console.log(players);
 
 자바스크립트는 DOM 노드를 선택하기 위한 또 다른 메쏘드들을 제공합니다.
 
-- `.getElementsByTagName()`: HTML 태그를 인수로 받아, 인수로 받은 태그와 동일한 모든 태그를 반환합니다.
+- `.getElementsByTagName(tagName)`: 태그 이름을 인수로 받아, 매칭되는 HTML 태그들을 반환합니다.
+- `.getElementbyId(id)`: id를 인수로 받아서, 주어진 id와 매칭되는 id의 속성 값을 가진 원소를 반환합니다. 
+- `.getElementsbyClassName(names)`: 클래스 이름을 인수로 받아서, `class`의 속성 값이 주어진 클래스 이름과 
+같은 원소들을 찾아 반환합니다.
+
+그러면 예시를 들어서 한 번 사용을 해보겠습니다.
 
 ```html
 <!DOCTYPE html>
@@ -176,11 +181,115 @@ console.log(players);
 </html>
 ```
 
-만약의 위의 예시에서, 모든 `li` 태그를 찾고 싶다면, `li`를 인수로 넘겨주면 되겠죠.
+만약, `li` 라는 태그를 모두 찾고 싶다면 `.getElementsByTagName()` 메쏘드를 사용하면, 주어진 태그에 맞는
+모든 태그를 찾아낼 것입니다.
 
 ```javascript
-const allLis = document.getElementsByTagName('li');
+const allLis = document.getElementsByTagName("li");
+
+// HTMLCollection(3) [li#mesi.player, li#buyol,player, li#puque.player]
 ```
+
+<!-- 더 좋은 설명 필요 -->
+이번에는 특정한 ID 값을 가진 원소를 찾아보겠습니다. `getElementById()` 메쏘드를 써주시면 됩니다. 위의 것과
+달리 이번에는 한 개의 원소만 반환하는데 왜냐하면 id 속성 자체가 오직 하나의 값만 가질수 있도록 디자인 되었기 때문입니다.
+
+```javascript
+const myFavoritePlayer = document.getElementById("mesi");
+
+// <li id="mesi" class="player">메씨</li>
+```
+
+아니면 `.getElementsbyClassName()` 메쏘드를 써서 특정한 클래스 값을 가진 원소들을 찾을 수도 있습니다.
+
+```javascript
+const allPlayers = document.getElementsByClassName('player')
+
+// HTMLCollection(3) [li#mesi.player, li#buyol,player, li#puque.player]
+```
+
+## 관계형 선택자로 노드에 접근하기
+
+또 다른 방법으로 우리는 관계형 선택자를 사용하여서 노드에 접근할 수 있습니다. 관계형 선택자는 말 그대로 노드간의 관계를 이용하여
+DOM Tree를 돌아다니는 방법입니다. 이러한 관계형 선택자들은 노드안에 프로퍼티로 저장되어 있습니다.
+
+예시를 통해서 실제로 사용하여 보면서 관계형 선택자를 이해해볼게요.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=5, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <ul class="player-list">
+      <li id="mesi" class="player">메씨</li>
+      <li id="buyol" class="player">부욜</li>
+      <li id="puque" class="player">푸케</li>
+    </ul>
+  </div>
+</body>
+<script src="script.js"></script>
+</html>
+```
+
+먼저, `div` 노드에 한 번 접근하여보겠습니다. 
+
+```javascript
+const div = document.querySelector('div');
+```
+
+그리고 `parentNode` 라는 프로퍼티를 사용하여 `div`의 부모노드를 살펴볼게요.
+
+```javascript
+console.log(div.parentNode);
+
+// <body>...</body>
+```
+
+`div` 의 바로 위에 있는 부모노드는 `body`이죠? 그래서 확인을 해보시면 `body`를 반환하시는 것을 볼 수 있습니다. 
+
+부모노드를 확인할 수 있는 방법이 있으면 자식노드를 확인할 수 있는 방법도 있어야겠죠? `childNodes` 를 통해서 자식노드들도 확인을 할 수 있습니다.
+
+```javascript
+const playerList = document.querySelector('.player-list');
+console.log(playerList.childNodes);
+
+// NodeList(7) [text, li#mesi.player, text, li#buyol.player, text, li#puque.player, text]
+```
+
+`childNodes`는 모든 노드들을 `NodeList` 라는 배열과 비슷한 형태로 반환을 합니다. 하지만 배열이 아니라 배열이 가진 메쏘드들을 사용하지는 못합니다.
+
+만약에, 여러분이 `text` 노드 등에는 큰 관심이 없고 `element` 타입의 노드만 반환을 하시고 싶다면 `children` 프로퍼티를 사용하여 주시면 됩니다.
+여기서 말하는 `element` 타입의 노드란 `p`, `div`, `body` 등과 같은 우리가 알고 있는 HTML 원소를 얘기합니다.
+
+```javascript
+const playerList = document.querySelector('.player-list');
+console.log(playerList.children);
+
+// HTMLCollection(3) [li#mesi.player, li#buyol,player, li#puque.player]
+```
+
+`lastChild` 프로퍼티를 이용하여, 어느 노드의 마지막 노드를 반환할 수도 있습니다. 반대로, `firstChild` 프로퍼티를 이용하여
+첫번째 노드를 반환할 수도 있겠죠.
+
+```javascript
+const playerList = document.querySelector('.player-list');
+
+console.log(playerList.firstChild); // 
+console.log(playerList.lastChild);
+```
+
+
+
+
+
+
+
+
 
 
 
