@@ -283,6 +283,102 @@ console.log(playerList.firstChild); //
 console.log(playerList.lastChild);
 ```
 
+<!-- 예제에 관련된 그림과 마무리 -->
+
+## DOM 메쏘드들
+
+위에서도 얘기하였듯이 여러분의 브라우저가 페이지를 여러분에게 보여주기 위해서 HTML 코드를 DOM(문서객체모델)로 생성을 합니다. 이 HTML 코드와 DOM의 가장 큰 차이점은 DOM 안에 있는 객체인 노드들이 많은 프로퍼티와 메쏘드를 가지고 있다는 것입니다. 이 프로퍼티와 메쏘드를 통해서 우리는 웹 페이지를 자바스크립트로 조작을 할 수 있습니다.
+
+실제로 HTML 예시와 함께 DOM의 여러가지 프로퍼티와 메쏘드 등을 상황에 맞게 사용해보겠습니다.
+
+아래의 `index.html` 파일을 만들어주세요.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=5, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div></div>
+<script src="script.js"></script>
+</html>
+```
+
+`body` 태그 안에, 하나의 `div` 태그만 있습니다.
+
+**요소(element) 생성하기**
+
+`document.createElement(태그이름)` 은 태그이름에 맞는 요소를 생성합니다.
+그럼 `ul` 요소를 한 번 생성해볼까요?
+
+```javascript
+const ul = document.createElement('ul');
+```
+
+이렇게 하면 `ul` 요소가 생성이 되는데 중요한 건 이 새로운 요소가 DOM 안에 들어가 있지 않습니다. 그냥 메모리에만 생성될 뿐이죠. 그래야 페이지에
+올리기 전에 이 요소를 스타일을 추가한다거나, 클래스를 추가한다던지 등등의 조작을 할 수 있겠죠.
+만약에 여러분이 DOM 안에 넣어주고 싶다면 아래의 메쏘드를 써주시면 됩니다.
+
+**요소(element) 넣어주기**
+
+`parentNode.appendChild(자식노드)`는 **자식노드**를 **부모노드**에 넣어줍니다.
+HTML 파일 안에 있는 `div` 요소에 아까 생성한 `ul` 요소를 넣어주겠습니다.
+
+```javascript
+const div = document.querySelector('div');
+div.appendChild(ul);
+```
+
+**요소(element) 지워주기**
+
+`parentNode.removeChild(자식노드)`는 지정된 **자식노드**를 **부모노드**에서 지워줍니다.
+그런데 생각해보니 이 `ul`이 필요없을 것 같아, `ul`을 지워주겠습니다.
+
+```javascript
+const div = document.querySelector('div');
+div.removeChild(ul);
+```
+
+그리고 다시 HTML을 확인해보시면, `div` 태그 안에 아무것도 없는 게 보이실 겁니다.
+
+**요소(element) 세부사항 조작하기**
+
+이렇게 요소를 넣어주고 지워주기만 한다면 큰 의미가 없겠죠? 만약에 DOM의 어떤 요소에 대해서 자바스크립트가 알고 있다면, 여러분은 속성을 추가-삭제-수정 한다던지,
+클래스를 바꿔준다던지, 스타일링을 자바스크립트에 직접 해준다던지 많은 것들을 할 수 있습니다.
+
+그렇다면 실제로 한 번 `div` 요소에 스타일링을 조금 해줄게요.
+
+**CSS 인라인 스타일 추가하기**
+
+```javascript
+const div = document.querySelector('div');
+
+div.style.height = '500px';
+div.style.width = '500px';
+// div의 높이와 넓이를 500px로 지정
+
+div.style.background = "gray";
+// div의 배경을 회색으로 지정
+```
+
+<!-- CSS Inline Style 룰에 대해서 설명 -->
+
+
+The property names contained in the style object do not contain the normal hyphen that is used in CSS property names. The translation is pretty simple. Remove the hyphen and use camel case. (e.g. font-size = fontSize or background-image = backgroundImage). In the case where a css property name is a JavaScript keyword the javascript css property name is prefixed with "css" (e.g. float = cssFloat).
+
+Short hand properties are available as properties as well. So you can not only set margin, but also marginTop.
+
+Remember to include for any css property value that requires a unit of measure the appropriate unit  (e.g. style.width = '300px'; not style.width = '300';). When a document is rendered in standards mode the unit of measure is require or it will be ignored. In quirksmode assumptions are made if not unit of measure is included.
+
+
+
+
+
+
+
 
 
 
