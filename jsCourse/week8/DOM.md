@@ -378,8 +378,108 @@ div.style.cssText = "background-color: black"; // O
 
 DOM의 CSS 스타일 룰에 대해서 알고싶다면, [CSS 스타일 룰 섹션](http://domenlightenment.com/#6.2)을 한 번 들어가보시는 것도 추천드립니다.
 
+**속성(Attribute) 수정하기**
+
+자바스크립트에서 HTML 속성을 수정할 수도 있습니다.
+
+```javascript
+div.setAttribute('id', 'container'); // id 속성의 값을 `container`로 줌
+
+div.getAttribute('id'); // id 속성의 값을 반환. 'container'
+
+div.removeAttribute('id'); // id 속성을 지움
+```
+
+**클래스(class) 조작하기**
+
+```javascript
+div.classList.add('main'); // `main` 이라는 클래스를 div에 추가
+
+div.classList.remove('main'); // `main` 이라는 클래스를 div에서 제거
+
+div.classList.toggle('main'); // 'main' 이라는 클래스가 있다면 제거, 없다면 추가
+```
+
+**텍스트 추가하기**
+
+```javascript
+div.textContent = '안녕하세요 여러분!';
+// '안녕하세요 여러분' 이라는 값을 가진 텍스트 노드를 생성하여 div에 추가
+```
+
+**HTML 추가하기**
+
+```javascript
+div.innerHTML = '<span>안녕하세요 여러분!</span>';
+// div에 HTML을 추가함
+```
+
+**텍스트를 추가하기 위해서는 보통 `textContent`가 많이 쓰입니다. `innerHTML`은 보안상 문제를 일으킬 수 있기 때문에 최대한
+적게 쓰시는 게 좋습니다.*
+
+**정리**
+
+다음으로 넘어가기 전에 우리가 이때까지 배운 것을 한 번 복습해볼게요. 아래의 예시를 보겠습니다.
+
+```html
+<body>
+  <h1>
+    연습용 웹페이지
+  </h1>
+  <div id="container"></div>
+</body>
+```
+
+```javascript
+// 자바스크립트 파일
+const container = document.querySelector('#container');
+
+const content = document.createElement('div');
+content.classList.add('content');
+content.textContent = '저는 텍스트 노드입니다!';
+
+container.appendChild(content);
+```
+
+자바스크립트에서 저희는 먼저 `container` div에 대한 정보를 참조합니다. 그 다음, 우리는 새로운 div를 만들어 `content` 라는 변수에 넣어주죠. 그 다음에는 `content` 라는 클래스를 추가하고, 거기에 텍스트 노드를 넣어줍니다. 여러분의 자바스크립트 코드가 실행되고 나면, DOM 트리는 아마 아래의 예시와 같을 것입니다.
+
+```html
+<!-- DOM 트리 -->
+<body>
+  <h1>
+    연습용 웹페이지
+  </h1>
+  <div id="container">
+  	<div class="content">
+      저는 텍스트 노드입니다!
+    </div>
+  </div>
+</body>
+```
+
+여러분 그런데 명심하셔야 될 것은 자바스크립트가 HTML 파일을 바꾸어 주는 것이 아니라 DOM을 바꾸어주는 것입니다. HTML 파일은 아마 똑같을 것이고 브라우저가 렌더링 하는 웹페이지를 바꾸어 줄 것입니다.
+
+**중요한 점**: 여러분의 자바스크립트 파일은 보통 HTML에서 script 태그를 만났을 때 실행될 것입니다. 만약에 여러분이 자바스크립트 파일을 HTML 파일의 위에 포함을 시키신다면 많은 DOM 메쏘드나 프로퍼티들이 작동을 하지 않을 수 있습니다. 왜냐하면 자바스크립트 코드가 DOM 노드가 생성되기 전에 작동하기 때문이죠. 그러니 HTML 파일의 밑에 자바스크립트 파일을 포함시키시는 것이 좋습니다.
+
+### 연습
+
+이제 배운 것을 연습해볼까요? 바로 위의 예시를 VSCode나 여러분이 사용하는 에디터에서 열어주세요. 하나의 HTML파일과 하나의 자바스크립트 파일이 있어야겠죠? 그 다음 밑의 요소들을 **자바스크립트만** 이용하여 `container` div에 넣어주세요.
+
+1. `<p>` 와 "나는 빨간색이야" 라는 빨간 색상의 텍스트
+2. `<h3>` 와 "나는 h3 파란색이야" 라는 파란 색상의 텍스트
+3. 노란 배경과 검정색의 테두리를 가지고 있는 `<div>`. 그 안에는 아래의 요소들이 있음
+  1. "나는 div 안에 있다!" 라는 텍스트를 가진 `<h1>`
+  2. "나도" 라는 텍스트를 가진 `<p>`
 
 
+## 이벤트(EVENT)
+
+<!-- 
+DOM을 다이나믹하게 발생시키는 3가지 방법
+여러가지의 노드에 이벤트 리스너 추가하는 법
+ -->
+
+- [dblclick](https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event)
 
 
 
