@@ -346,10 +346,10 @@ div.removeChild(ul);
 
 **요소(element) 세부사항 조작하기**
 
-이렇게 요소를 넣어주고 지워주기만 한다면 큰 의미가 없겠죠? 만약에 DOM의 어떤 요소에 대해서 자바스크립트가 알고 있다면, 여러분은 속성을 추가-삭제-수정 한다던지,
-클래스를 바꿔준다던지, 스타일링을 자바스크립트에 직접 해준다던지 많은 것들을 할 수 있습니다.
+이렇게 요소를 넣어주고 지워주기만 한다면 큰 의미가 없겠죠? 만약에 DOM의 어떤 HTML 요소에 대해서 자바스크립트가 알고 있다면, 여러분은 속성을 추가-삭제-수정 한다던지,
+클래스를 바꿔준다던지, CSS 스타일링을 자바스크립트로 직접 해준다던지 많은 것들을 할 수 있습니다.
 
-그렇다면 실제로 한 번 `div` 요소에 스타일링을 조금 해줄게요.
+그렇다면 실제로 한 번 `div` 요소에 CSS 인라인 스타일링을 조금 해줄게요.
 
 **CSS 인라인 스타일 추가하기**
 
@@ -360,18 +360,26 @@ div.style.height = '500px';
 div.style.width = '500px';
 // div의 높이와 넓이를 500px로 지정
 
-div.style.background = "gray";
+div.style.backgroundColor = "gray";
 // div의 배경을 회색으로 지정
 ```
 
-<!-- CSS Inline Style 룰에 대해서 설명 -->
+위에서는 `div` 요소를 선택하여, 거기에 대한 스타일링을 해주었습니다. 여기서 주의하셔야 할 점이 두 개 있는데 첫번째로는 `style` 이라는 프로퍼티를 먼저 적어주셔야 그 다음 CSS 프로퍼티를 사용하실 수 있습니다. 
+
+위의 예시를 보시면 `HTMLElement.style.backgroundColor` 형식으로 되어있죠.
+또 하나의 주의할 점은 보통 CSS 프로퍼티는 케밥 케이스(`background-color`)를 사용하는데, 자바스크립트로 스타일링을 하실때는 카멜 케이스(`backgroundColor`)를 사용하시거나 브라켓 표기법(`HTMLElement.style["background-color")`)을 사용하셔야 됩니다.
+
+```javascript
+div.style.background-color // X
+div.style.backgroundColor // O(카멜케이스)
+div.style["background-color"] // O(브라켓 표기법)
+div.style.cssText = "background-color: black"; // O
+```
+
+DOM의 CSS 스타일 룰에 대해서 알고싶다면, [CSS 스타일 룰 섹션](http://domenlightenment.com/#6.2)을 한 번 들어가보시는 것도 추천드립니다.
 
 
-The property names contained in the style object do not contain the normal hyphen that is used in CSS property names. The translation is pretty simple. Remove the hyphen and use camel case. (e.g. font-size = fontSize or background-image = backgroundImage). In the case where a css property name is a JavaScript keyword the javascript css property name is prefixed with "css" (e.g. float = cssFloat).
 
-Short hand properties are available as properties as well. So you can not only set margin, but also marginTop.
-
-Remember to include for any css property value that requires a unit of measure the appropriate unit  (e.g. style.width = '300px'; not style.width = '300';). When a document is rendered in standards mode the unit of measure is require or it will be ignored. In quirksmode assumptions are made if not unit of measure is included.
 
 
 
