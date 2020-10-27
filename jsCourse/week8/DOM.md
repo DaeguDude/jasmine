@@ -594,17 +594,68 @@ btn.addEventListener('click', function (e) {
 
 짜잔, 신기하지 않나요? ㅎㅎ
 
+## 노드 그룹에 이벤트 리스너 추가하기
 
+이때까지는 한 개의 노드에 이벤트에 반응을 할 수 있게 하는 이벤트 리스너를 추가하였습니다. 하지만 여러가지 노드에 이벤트 리스너를 추가해야 된다면 어떻게 해야될까요? 
 
+```html
+<div id="container">
+    <button id="1">Click Me</button>
+    <button id="2">Click Me</button>
+    <button id="3">Click Me</button>
+</div>
+```
 
+위의 예시에서는 3가지 버튼이 있습니다. 하지만, 버튼을 하나하나씩 참조한다음 이벤트리스너를 추가해준다면 엄청 비효율적이겠죠. 우리는 `document.querySelector()`를 이용해 (노드리스트`NodeList`)를 받는 방법을 알고 있습니다. 그리고 반복을 이용해주면 조금 더 깔끔하게 이벤트 리스너를 추가해 줄 수 있습니다.
 
+```javascript
+// buttons 변수는 노드리스트입니다. 배열은 아니지만 `forEach`를 사용하여 반복을 해 줄 수 있습니다.
+const buttons = document.querySelectorAll('button');
 
+// forEach를 통해 모든 버튼에 접근할 수 있습니다.
+buttons.forEach((button) => {
 
+  // 각각의 버튼에 'click' 이벤트에 대한 리스너를 추가합니다.
+  button.addEventListener('click', () => {
+    alert(button.id);
+  })
+})
+```
 
+제가 위에서 다룬 예시는 DOM 조작에 있어 아주 극히 일부분에 불가하지만, 여러분이 연습을 해나가는데는 충분할 것 같습니다. 위의 예시들에서는 'click' 이벤트에 대해서만 다루었지만, 다양한 이벤트들이 있습니다.
 
+예를 들어서,
 
+- click(마우스 클릭)
+- dblclick(마우스 더블클릭)
+- keydown(키가 눌렸을때)
+- keyup(눌러진 키가 떼졌을 때)
 
-- [dblclick](https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event)
+등등이 있습니다.
+
+여러가지의 이벤트 리스트 등은 이 [페이지](https://www.w3schools.com/jsref/dom_obj_event.asp)에서 확인해보세요.
+
+## 연습
+
+수영을 잘하는 방법은 수영을 하고, 또 하고, 또 하고, 또 하고... 계속 해야되겠죠? 코드를 잘 짜려면 계속 코드를 짜 보는 수 밖에 없습니다. DOM을 한 번 연습해볼게요.
+
+**가위바위보 프로젝트**
+
+여러분이 가장 처음에 한 "가위바위보" 게임으로 돌아가서, 유저가 클릭을 할 수 버튼을 만들어주세요. 가위, 바위, 보 3가지 선택을 위한 각각의 버튼이 있어야 합니다.
+
+1. 먼저 여러분이 원래 작업한 코드를 잃어버리지 않게 원래 있던 코드를 새로운 파일로 복사하세요.
+
+2. 5 게임만 진행을 하는 코드를 지워주세요.
+
+3. 각각의 선택(가위, 바위, 보)에 따른 3개의 버튼을 만들어주세요. 버튼에 대해서 이벤트 리스너를 추가하는데, 이 이벤트 리스너는 `playRound` 함수를 실행시킬 것이고 정확한 `playerSelection`을 인수로 넘겨주여야 합니다. 예를 들어, 가위 버튼이 클릭이 되었다면 `playerSelection`은 'scissor'가 되어야 하겠죠.(`console.log`는 아직 그대로 두셔도 됩니다.)
+
+4. 여러분의 결과를 보여줄 수 있는 `div`를 추가하여 주시고, 모든 `console.log`를 DOM 메쏘드로 변경하여 주세요.
+
+5. 점수판을 만들어, 게임의 진행 상황을 화면에 나타내어 주시고 플레이어나 컴퓨터가 5점에 도달하면 승자를 선언해주세요.
+
+6. 아마도 원래의 코드를 리팩토링(다시 작성)해야 할 것입니다. 그래도 괜찮습니다. 오래된 코드를 깔끔하게 다시 작업하는 것은 프로그래머가 자주 하는 일이니까요.
+
+7. 끝나고 나면, [가위바위보 프로젝트](https://github.com/DaeguDude/jasmine/tree/master/jsCourse/project/rockPaperScissor) 페이지에 여러분의 결과물을 업데이트 하는 것을 잊지 말아주세요. 
 
 
 
