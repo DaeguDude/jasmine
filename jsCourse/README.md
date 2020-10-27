@@ -51,6 +51,14 @@
 - [배열](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week6/array.md)
 - [반복문](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week6/loop.md)
 
+## Week 7
+
+중간고사
+
+## Week 8
+
+- [문서객체모델(Document Object Model) 다루기](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week8/DOM.md)
+
 ### 유용한 사이트 
 
 [생활코딩](http://opentutorials.org) 
