@@ -478,6 +478,131 @@ container.appendChild(content);
 DOM을 다이나믹하게 발생시키는 3가지 방법
 여러가지의 노드에 이벤트 리스너 추가하는 법
  -->
+우리는 자바스크립트를 통해서 어떻게 DOM을 조작하는지 배웠습니다. 다음은 이것을 어떻게 특정 시점에 맞춰서 다이나믹하게 조작하는 지 알아볼려고 합니다. **이벤트**라는 것을 통해서 우리는 다양한 DOM 메쏘드 등을 다이나믹하게(동적으로) 쓸 수 있는데요. 이벤트라는 것은 여러분의 페이지에 일어나는 사건 같은 것들입니다. 예를 들어서 마우스 클릭, 키보드 누름 등등이 있겠죠. 자바스크립트를 이용해서 우리 웹페이지를 이러한 이벤트를 듣고, 거기에 반응하게 해볼게요.
+
+### 이벤트를 추가하는 3가지 방법
+
+우리는, 어떤 버튼이 클릭되면 "안녕하세요!"를 출력하는 버튼을 만들 것입니다. VS Code에서 실행하며 따라해보시거나, 온라인 에디터 [코드펜](https://codepen.io/)등을 사용하셔도 됩니다.
+
+**방법1: HTML 요소에 함수속성 추가하기**
+
+첫번째 방법은 HTML 요소에 함수속성을 직접 추가하는 것입니다. 
+
+```html
+<button onclick="alert('안녕하세요!')">Click Me</button>
+```
+
+이 방법은 아주 좋은 방법은 아닙니다. 왜냐하면 HTML 파일을 **더럽히고** 있기 때문이죠. HTML 파일은 HTML에 관련된 코드만 있으면 가장 좋습니다.결론은 사용하지 마세요.
+
+**방법2: DOM 객체에 on_event 프로퍼티에 함수 추가하기**
+
+event handler properties
+두번째 방법은 자바스크립트에서, DOM 객체의 `onevent` 프로퍼티에 함수를 넣어주는 것입니다.
+
+```html
+<!-- HTML 파일 -->
+<button id="btn">Click me</button>
+```
+
+```javascript
+// 자바스크립트 파일
+const btn = document.querySelector('#btn');
+btn.onclick = () => alert("Hello World");
+```
+
+이거는 약간 낫습니다. 왜냐하면 자바스크립트를 HTML에서 지워줬기 때문이죠. 하지만 이것도 좋은 방법은 아닙니다. 왜냐하면 DOM 객체가 하나의 'onclick' 프로퍼티밖에 가질 수 없기 때문이죠.
+
+**방법3: addEventListener 사용하기**
+
+```html
+<!-- HTML 파일 -->
+<button id="btn">Click me</button>
+```
+
+```javascript
+// 자바스크립트 파일
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', () => {
+  alert("안녕하세요!");
+})
+```
+
+마지막 방법은 `EventTarget.addEventListener`를 사용하는 것인데, 이를 통해서 우리는 자바스크립트와 HTML을 분리하였고, 만약에 필요하다면 여러개의 이벤트 리스너를 추가할 수 있습니다.
+
+그리고 위의 예시에서 저는 화살표 함수만을 썼지만, 함수라면 그 어떤 것도 상관이 없습니다. 이름있는 함수를 써도 됩니다.
+
+예를 들어,
+
+```html
+<!-- HTML 파일 -->
+<button onclick="alertFunction()">CLICK ME!</button>
+
+```
+<!-- 자바스크립트 -->
+```javascript
+function alertFunction() {
+  alert('안녕하세요~!');
+}
+
+// 방법2
+btn.onclick = alertFunction;
+
+// 방법3
+btn.addEventListener('click', alertFunction);
+```
+
+만약에 이름있는 함수를 쓴다면 여러분은 코드를 좀 더 깔끔하게 작성할 수도 있습니다. 만약에 여러분이 특정 함수를 여러번 써야 된다면 이름 있는 함수를 쓰는게 **정말 좋은 생각**입니다.
+
+**이벤트에 대한 정보 얻기**
+
+가끔씩은, 여러분이 이벤트 그 자체에 대한 정보를 얻어야 될 때도 있습니다. 여러분이 실행시키려는 함수에, 매개변수를 넣어준다면 그 매개변수를 통해 우리는 이벤트 자체에 대한 정보를 더 얻을 수도 있습니다. 말로 하면 어려우니 예시를 볼게요.
+
+```javascript
+btn.addEventListener('click', function(e) {
+  console.log(e);
+});
+```
+
+**노트: 위에서의 함수 `function(e)`는 addEventListener의 콜백입니다. 콜백이란 아주 쉽게 말하자면 함수의 매개변수에 인수로써 넘겨주는 함수를 칭합니다. 콜백은 자바스크립트에서 아주 중요한 개념이기 때문에, 아래의 영상을 보시는 것을 추천드립니다*
+
+- [드림코딩 by 엘리의 콜백 이해하기, 콜백 지옥체험](https://www.youtube.com/watch?v=s1vpVCrT8f4&ab_channel=%EB%93%9C%EB%A6%BC%EC%BD%94%EB%94%A9by%EC%97%98%EB%A6%AC)
+
+위의 예시에서 함수의 매개변수 `e`는 이벤트를 참조하는 객체입니다. 이 객체안에 여러가지 유용한 프로퍼티와 함수 등이 있습니다. 예를 들어서 어떤 키가 클릭이 되었는지, 어떤 이벤트 타겟이 클릭되었는지 등등이 있습니다(클릭된 DOM노드).
+
+밑의 코드를 한 번 실행해보세요.
+
+```html
+<!-- HTML -->
+<button id="btn">Click me</button>
+```
+
+```javascript
+// 자바스크립트
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', function (e) {
+  console.log(e.target); // "<button id='btn'>Click me</button>"
+});
+```
+
+그리고, 밑의 코드를 실행해보세요.
+
+```javascript
+btn.addEventListener('click', function (e) {
+  e.target.style.background = 'blue';
+})
+```
+
+짜잔, 신기하지 않나요? ㅎㅎ
+
+
+
+
+
+
+
+
+
+
 
 - [dblclick](https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event)
 
