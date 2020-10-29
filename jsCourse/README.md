@@ -28,13 +28,7 @@
 - [문제해결](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week3/problemSolving.md)
 - [깃 기초](https://github.com/DaeguDude/jasmine/tree/master/Git-Tutorial/git-basic/class1)
 
-## 프로젝트(가위바위보)
-
-[가위바위보 프로젝트](https://github.com/DaeguDude/jasmine/tree/master/jsCourse/project/rockPaperScissor)
-
-## 프로젝트 pull request 하는 법
-
-[pull request 하는 법](https://www.youtube.com/watch?v=-WpdlsXTK6k&feature=youtu.be&ab_channel=DaeguDude)
+- [가위바위보 프로젝트](https://github.com/DaeguDude/jasmine/tree/master/jsCourse/project/rockPaperScissor)
 
 ## Week 4
 
@@ -58,6 +52,14 @@
 ## Week 8
 
 - [문서객체모델(Document Object Model) 다루기](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week8/DOM.md)
+
+## Week 9~10
+
+- [매직스크린(Etch-a-Sketch) 프로젝트](https://github.com/DaeguDude/jasmine/tree/master/jsCourse/project/etch-a-sketch)
+
+## 프로젝트 pull request 하는 법
+
+[pull request 하는 법](https://www.youtube.com/watch?v=-WpdlsXTK6k&feature=youtu.be&ab_channel=DaeguDude)
 
 ### 유용한 사이트 
 
