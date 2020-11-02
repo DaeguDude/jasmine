@@ -28,21 +28,39 @@
 <!----------------------------- 
 플렉스 컨테이너 
 ------------------------------>
+![flex-container](./img/flex-container.png)
 ## 부모 프로퍼티(플렉스 컨테이너)
 
 ### display
 
+```css
+.container {
+    display: flex;
+}
+```
+
 ### flex-direction
+![flex-direction](./img/flex-direction.png)
+
+```css
+.container {
+    flex-direction: row | row-reverse | column | column-reverse;
+}
+```
 
 ### flex-wrap
+![flex-wrap](./img/flex-wrap.png)
 
 ### flex-flow
 
 ### justify-content
+![justify-content](./img/justify-content.png)
 
 ### align-items
+![align-items](./img/align-items.png)
 
 ### align-content
+![align-content](./img/align-content.png)
 
 <!----------------------------- 
 플렉스 아이템 
