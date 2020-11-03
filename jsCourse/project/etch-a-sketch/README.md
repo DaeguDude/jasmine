@@ -64,6 +64,12 @@
 
 6. 깃허브에 여러분의 프로젝트를 올려주세요!
 
+## 참고자료
+
+- [플렉스박스(Flexbox)](https://github.com/DaeguDude/jasmine/tree/master/jsCourse/week9/flexbox)
+
+- [그리드(Grid)](https://github.com/DaeguDude/jasmine/tree/master/jsCourse/week9/grid)
+
 
 ## 여러분들의 프로젝트
 
