@@ -1,8 +1,15 @@
 # 플렉스박스(flexbox)
 
+
 - [플렉스박스 플레이그라운드](https://codepen.io/enxaneta/full/adLPwv/)
 
 플렉스박스는 컨테이너안의 아이템을 행이나 열로써 나타내는 1차원적인 레이아웃입니다. 플렉스박스 컨테이너안의 아이템은 공간에 따라서 늘어나거나 작아질 수도 있습니다. 플렉스박스가 나온 이유는 이때까지는 `float`와 `position`을 이용한 레이아웃을 사용해 CSS 레이아웃을 만들었는데, 이것이 불편하였기 때문입니다. 플렉스박스를 이용하여 조금 더 쉽게 레이아웃을 짜봅시다.
+
+**과제**
+
+MDN에서 정리한 플렉스박스의 기본개념에 대해 먼저 읽어보세요.
+
+- [플렉스박스 기본개념](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Flexible_Box_Layout/Flexbox%EC%9D%98_%EA%B8%B0%EB%B3%B8_%EA%B0%9C%EB%85%90)
 
 ## 기본 & 용어
 
@@ -14,17 +21,17 @@
 
 아이템은 주축(main axis)이나 횡축(cross axis)을 통하여 놓아질 것입니다.
 
-- **주축(main axis)**: 플렉스 컨테이너의 주축은 플렉스 아이템이 놓아지는 기본 값입니다. 중요한 것은, 주축이 무조건 수평이 아니라 `flex-direction`의 값에 따라 수직으로 바뀔 수도 있다는 것을 아셔야 합니다.
+- **주축(main axis)**: 플렉스 컨테이너의 주축은 플렉스 아이템이 놓아지는 기본 값입니다. 주축은 `flex-direction`의 값에 따라 바뀔 수 있으며, 기본 값은 수평(row)이며, 수직(column)으로 바꾸어 줄 수도 있습니다.
 
-- **주-시작(main-start) | 주-끝(main-start)**: 컨테이너안의 플렉스 아이템들은 주-시작부터 주-끝 방향으로  놓아집니다.
+- **주-시작(main-start) | 주-끝(main-start)**: 주축의 방향을 따라 주축의 시작점을 주-시작(main-start), 주축의 끝나는 점을 주-끝(main-end)라고 부릅니다.
 
-- **주-크기(main-size)**: `flex-direction`의 값에 따라, 
+<!-- - **주-크기(main-size)**: `flex-direction`의 값에 따라,  -->
 
-- **횡축(cross axis)**:
+- **교차축(cross axis)**: 교차축은 주축의 방향에 수직방향입니다. 만약 주축이 수평이라면, 교차축은 수직선을 그릴 것이며, 주축이 수직이라면 교차축은ㅇ 수평선을 그릴 것입니다.
 
-- **횡-시작(cross-start) | 횡-끝(cross-end)**:
+- **교차-시작(cross-start) | 교차-끝(cross-end)**: 교차축의 방향을 따라 교차축의 시작점을 교차-시작(cross-start), 교차축의 끝나는 점을 교차-끝(cross-end)라고 부릅니다.
 
-- **횡-크기(cross-size)**:
+<!-- - **교차-크기(cross-size)**: -->
 
 
 <!----------------------------- 
@@ -46,7 +53,7 @@
 ### flex-direction
 ![flex-direction](./img/flex-direction.png)
 
-`flex-direction`을 통해서 주축(main-axis)를 정할 수 있습니다. 플렉스박스는 1차원 레이아웃이기 때문에 아이템이 행(`row`) 아니면 열(`column`)로 놓아진다고 생각하시면 쉽습니다.
+`flex-direction`을 통해서 주축(main-axis)의 방향을 정할 수 있습니다. 플렉스박스는 1차원 레이아웃이기 때문에 플렉스 아이템들은 행(`row`) 아니면 열(`column`)방향으로 놓아집니다.
 
 ```css
 .container {
@@ -63,7 +70,7 @@
 
 ![flex-wrap](./img/flex-wrap.png)
 
-기본적으로, 플렉스 아이템을 한 줄에 정렬을 하려고 할 것인데, `flex-wrap` 프로퍼티를 통해서 플렉스 아이템을 여러 줄로 정렬할 수도 있다.
+기본적으로 플렉스 아이템들은 한 줄에 정렬이 됩니다. 하지만 `flex-wrap` 프로퍼티를 통해서 플렉스 아이템을 여러 줄로 정렬할 수도 있다.
 
 ```css
 .container {
@@ -90,39 +97,49 @@
 ![justify-content](./img/justify-content.png)
 
 <!-- 더 많은 설명이 필요할 듯 -->
-`justify-content` 프로퍼티는 주축(Main Axis)을 어떻게 정렬할 것인지 결정을 합니다. 
+`justify-content` 프로퍼티는 주축(Main Axis)에 따라 놓여진 아이템들을 어떻게 정렬을 할 지 결정합니다.
 
 ```css
 .container {
-    justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;
+    justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right
+    
 }
 ```
+<!-- /*  ... + safe | unsafe; */ -->
 
-- `flex-start`(기본값): 아이템들이 `flex-direction` 방향의 시작점에 정렬됩니다.
-- `flex-end`: 아이템들이 `flex-direction` 방향의 끝나는 점에 정렬됩니다.
+- `flex-start`(기본값): 아이템들이 주축의 시작점에 정렬됩니다.
+- `flex-end`: 아이템들이 주축의 끝나는 점에 정렬됩니다.
 - `start`: 아이템들이 `writing-mode` 방향의 시작점에 정렬됩니다.
 - `end`: 아이템들이 `writing-mode` 방향의 끝나는 점에 정렬됩니다.
-<!-- - `left`:  -->
-<!-- `right` -->
+- `left`: 아이템들이 컨테이너의 왼쪽 가장자리에 정렬됩니다. 만약에 `flex-direction`과 프로퍼티의 방향이 맞지 않는다면 `start`와 똑같이 작동합니다.
+- `right`: 아이템들이 컨테이너의 오른쪽 가장자리에 정렬됩니다. 만약에 `flex-direction`과 프로퍼티의 방향이 맞지 않는다면 `start`와 똑같이 작동합니다.
 - `center`: 아이템들이 중앙에 정렬이 됩니다.
-<!-- - `space-between`: 각각의 아이템들 사이에 똑같은 공간 넓이만큼 정렬이 됩니다. 첫번째 아이템은 시작점에, 마지막 아이템은 끝나는 점에 있습니다. -->
-<!-- space around -->
-<!-- - `space-evenly`:  -->
+- `space-between`: 첫번째 플렉스 아이템과 마지막 플렉스 아이템을 주축의 시작점과 끝나는 점에 놓고, 남은 공간을 아이템들의 사이에 공평하게 분배합니다.
+- `space around`: 남은 공간을 플렉스 아이템의 옆에 알맞게 분배합니다. 중요한 것은, 플렉스 아이템들의 사이와, 플렉스 아이템과 시작점 혹은 끝나는 점까지의 공간은 다르다는 것을 아셔야 합니다. 왜냐하면, 각 플렉스 아이템마다 10px의 공간이 더 붙어져 있다면, 그 옆의 플렉스 아이템도 10px의 공간이 있기 때문에 이 둘 사이의 공간은 20px이 되기 때문입니다.
+- `space-evenly`: 남은 공간이 공평하게 분배되어 어떠한 플렉스 아이템들의 사이의 공간도 똑같게 됩니다. **플렉스 아이템과 컨테이너의 시작점 혹은 끝나는 점까지의 공간도 똑같습니다.**
 
 여기서 아셔야 할 것은, 이 프로퍼티의 값들이 아직 브라우저에서 지원을 안 하는 경우가 있습니다. 예를 들어, `start/end/left/right` 는 아직 크롬에서 지원을 안 합니다. MDN의 [페이지](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)를 방문해보시면, 어떤 것이 지원되고 안 되는지 표를 보실 수 있습니다.
 
 ### align-items
 ![align-items](./img/align-items.png)
 
-`align-items` 프로퍼티는 플렉스 아이템들이 횡축에서 어떻게 정렬이 될지 정합니다. 아주 쉽게 생각하면, `justify-content`의 횡축 버전으로 생각하시면 됩니다.
+`align-items` 프로퍼티는 `justify-content` 프로퍼티의 교차축 버전이라고 생각하시면 됩니다. 교차축에서 아이템들이 어떻게 정렬될지 결정합니다.
 
 ```css
 .container {
-  align-items: stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;
+  align-items: stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end
 }
-
-- `stretch`(기본값) 
 ```
+ <!-- + ... safe | unsafe; -->
+- `stretch`(기본값): 플렉스 아이템들이 교차축을 따라 컨테이너의 남온공간을 채웁니다.
+- `flex-start` / `start` / `self-start`: 아이템들이 교차축의 시작점에 정렬됩니다. 이들 사이의 차이는 아주 미묘한데, `flex-direction` 규칙을 따르느냐 `writing-mode` 규칙을 따르느냐의 차이입니다.
+
+- `flex-end`/ `end` / `self-end`: 아이템들이 교차축의 끝에 배치됩니다. 이들 사이의 차이는 아주 미묘한데,`flex-direction` 규칙을 따르느냐 `writing-mode` 규칙을 따르느냐의 차이입니다.
+
+- `center`: 교차축의 중앙에 정렬됩니다.
+- `baseline`: 베이스라인에 맞춰 정렬됩니다.
+
+
 
 ### align-content
 ![align-content](./img/align-content.png)
