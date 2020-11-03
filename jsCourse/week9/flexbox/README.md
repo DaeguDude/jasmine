@@ -1,8 +1,5 @@
 # 플렉스박스(flexbox)
 
-
-- [플렉스박스 플레이그라운드](https://codepen.io/enxaneta/full/adLPwv/)
-
 플렉스박스는 컨테이너안의 아이템을 행이나 열로써 나타내는 1차원적인 레이아웃입니다. 플렉스박스 컨테이너안의 아이템은 공간에 따라서 늘어나거나 작아질 수도 있습니다. 플렉스박스가 나온 이유는 이때까지는 `float`와 `position`을 이용한 레이아웃을 사용해 CSS 레이아웃을 만들었는데, 이것이 불편하였기 때문입니다. 플렉스박스를 이용하여 조금 더 쉽게 레이아웃을 짜봅시다.
 
 **과제**
@@ -231,3 +228,22 @@ MDN에서 정리한 플렉스박스의 기본개념에 대해 먼저 읽어보�
     align-self: auto | flex-start | flex-end | center | baseline | stretch;
 }
 ```
+
+## 참고자료
+
+이번 자료는 아래의 링크에 따른 번역본입니다.
+
+- [Complete guide to CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+- [flexbox의 기본개념](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Flexible_Box_Layout/Flexbox%EC%9D%98_%EA%B8%B0%EB%B3%B8_%EA%B0%9C%EB%85%90)
+
+
+## 고칠점 / 연락하기
+
+혹시나 글에서 고칠 점이나 추가되어야 할 점이 있다면, [Jasmine 깃허브](https://github.com/DaeguDude/jasmine/issues)에서 issue를 생성해주시고, 개인적인 연락은 k3hppk@gmail.com 으로 주시면 됩니다.
+
+## 추가적인 자료들
+
+- [플렉스박스 플레이그라운드](https://codepen.io/enxaneta/full/adLPwv/)
+
+- [CSS Flexbox 완전 정리 - 드림코딩 by 엘리](https://www.youtube.com/watch?v=7neASrWEFEM&ab_channel=%EB%93%9C%EB%A6%BC%EC%BD%94%EB%94%A9by%EC%97%98%EB%A6%AC)
