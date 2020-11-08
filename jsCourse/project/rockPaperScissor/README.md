@@ -53,3 +53,5 @@ console.log(playRound(playerSelection, computerSelection));
 - [정환 가위바위보](https://github.com/spark-o-petit/jasmine-vanillaJS/blob/main/RCPgame/rcpgame.html)
 - [현규 가위바위보](https://github.com/XsF1re/rock-scissors-paper) - [라이브로 보기](https://jasmine.xsf1re.kr/rock-scissors-paper/)
 - [준태 가위바위보](https://github.com/kjt3015/junHW)
+- [동훈 가위바위보](https://github.com/naringles/RSPgame)  - [라이브로 보기](rcp-game-by-naringles.netlify.app)
+
