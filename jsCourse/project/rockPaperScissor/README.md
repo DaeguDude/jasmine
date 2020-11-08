@@ -51,5 +51,6 @@ console.log(playRound(playerSelection, computerSelection));
 - [상학 가위바위보](https://github.com/DaeguDude/rock-paper-scissors) - [라이브로 보기](https://daegudude.github.io/rock-paper-scissors/)
 - [상학2 가위바위보](https://github.com/DaeguDude/jasmine-rps)
 - [정환 가위바위보](https://github.com/spark-o-petit/jasmine-vanillaJS/blob/main/RCPgame/rcpgame.html)
+- [정환 가위바위보 V2](https://github.com/spark-o-petit/rock-paper-scissors) - [라이브로 보기](https://rock-paper-scissors-by-alex.netlify.app)
 - [현규 가위바위보](https://github.com/XsF1re/rock-scissors-paper) - [라이브로 보기](https://jasmine.xsf1re.kr/rock-scissors-paper/)
 - [준태 가위바위보](https://github.com/kjt3015/junHW)
