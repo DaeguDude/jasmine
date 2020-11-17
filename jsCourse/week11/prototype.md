@@ -1,4 +1,4 @@
-# 프로토타이프(Prototype)
+# 프로토타입(Prototype)
 
 프로토타입이란 자바스크립트 개발자가 이해해야할 아주 중요한 개념입니다. 이번 시간에는 프로토타입에 대해서 최대한 쉽게 자세히 한 번 알아보겠습니다. 
 
@@ -24,12 +24,11 @@ PrintStuff.prototype.print = function () {
 // 'PrintStuff' 생성자를 사용하여 새로운 객체를 만듭니다. 이렇게 하면 만들어진 객체가 'PrintStuff'의 프로퍼티와 메쏘드를 상속합니다.
 var newObj = new PrintStuff ("난 새로운 객체고 print함수를 쓸 수 있어");
 
-// newObj inherited all the properties and methods, including the print method, from the PrintStuff function. Now newObj can call print directly, even though we never created a print () method on it.
 // 'newObj'가 모든 `PrintStuff` 함수로부터 'print' 메쏘드를 포함한 프로퍼티와 모든 메쏘드를 상속합니다. 여러분은 이제 newObj 객체에서 'print' 함수를 쓰실 수 있습니다.
 newObj.print(); // 난 새로운 객체고 print함수를 쓸 수 있어
 ```
 
-2. **프로토타입 어트리뷰트(Prototype Attribute)**: 프로토타입의 두번째 개념으로는 프로토타입 어트리뷰트가 있습니다. 프로토타입 어트리뷰트는 객체의 '부모'를 얘기하여 줍니다. 간단히 얘기하여서, 객체의 프로토타입 어트리뷰트는 객체의 '부모'를 가르킵니다. 여기서 부모란 객체가 상속을 받은 곳을 의미하죠. 프로토타입 어트리뷰트는 보통 프로토타입 객체를 얘기하는데, 여러분이 새로운 객체를 생성하면 자동으로 지정됩니다. 더 자세하게 설명하자면, 모든 객체는 프로퍼티를 다른 객체로부터 상속을 받습니다. 그리고 이 '다른 객체'가 객체의 프로토타입 어트리뷰트, 즉 부모입니다. 위의 코드 예시에서는, `newObj`의 프로토타입 어트리뷰트는 `PrintStuff.prototype` 입니다.
+2. **프로토타입 어트리뷰트(Prototype Attribute)**: 프로토타입의 두번째 개념으로는 프로토타입 어트리뷰트가 있습니다. 프로토타입 어트리뷰트는 객체의 '부모'를 얘기하여 줍니다. 간단히 얘기하여서, 객체의 프로토타입 어트리뷰트는 객체의 '부모'를 가르킵니다. 여기서 부모란 객체가 상속을 받은 곳을 의미하죠. 프로토타입 어트리뷰트는 줄여서 프로토타입이라고도 얘기하는데 여러분이 새로운 객체를 생성하면 자동으로 지정됩니다. 더 자세하게 설명하자면, 모든 객체는 프로퍼티를 다른 객체로부터 상속을 받습니다. 그리고 이 '다른 객체'가 객체의 프로토타입 어트리뷰트, 즉 부모입니다. 위의 코드 예시에서는, `newObj`의 프로토타입 어트리뷰트는 `PrintStuff.prototype` 입니다.
 
 **생성자(Constructor)**
 
@@ -73,7 +72,7 @@ const teacher = { name: "Chulsoo" }
 **생성자 함수로 생성된 객체들의 프로토타입 어트리뷰트**
 
 <!-- 재확인 -->
-`Object` 생성자 말고 다른 생성자 함수들로 생성된 객체들은, 프로토타입 어트리뷰트는 생성자 함수입니다.
+`Object` 생성자 말고 다른 생성자 함수들로 생성된 객체들의 프로토타입 어트리뷰트(부모)는 생성자 함수입니다.
 
 예를 들어서,
 
@@ -93,7 +92,7 @@ const myArray = new Array();
 // 'myArray' 배열(객체)의 프로토타입 어트리뷰트(부모)는 'Array.prototype'입니다.
 ```
 
-정리하자면, 객체의 프로토타입 어트리뷰트(그냥 프로토타입이라고 얘기하기도 합니다)가 지정되는 것에는 보통 2가지 종류가 있습니다.
+정리하자면, 객체의 프로토타입 어트리뷰트가 지정되는 데에는 2가지 종류가 있습니다.
 
 1. 만약에 객체가 리터럴 객체(`{ }`)로 만들어진다면, 만들어진 객체는 `Object.prototype`을 프로토타입으로 가질 것입니다(프로토타입 어트리뷰트).
 
@@ -213,3 +212,100 @@ famousPerson.athlete; // "코비 브라이언트"
 famousPerson.toString()
 
 ```
+
+## 다른 방법으로 객체 만들기
+
+만약에 여러분이 프로토타입의 개념을 이해하셨다면, 이번에 설명하려는 개념이 어렵지 않으실 겁니다.
+
+```javascript
+function Student(name, grade) {
+    this.name = name;
+    this.grade = grade;
+}
+
+Student.prototype.sayName = function() {
+    console.log(this.name);
+}
+
+Student.prototype.sayGrade = function() {
+    console.log(this.grade);
+}
+```
+
+만약에 여러분이 객체를 만들기 위해 생성자를 쓰신다면, 함수를 그 객체의 프로토타입(부모)에 함수를 선언하는게 제일 좋은 방법입니다. 그렇게 함으로써, 생성된 하나의 함수가 `Student`로 생성된 모든 객체에서 쓰일 수 있기 때문이죠. 만약에 우리가 생성자에 직접 함수를 선언한다면, 새로운 `Student` 인스턴스가 생겨날때마다, 함수가 객체에 선언될 것입니다. 지금 같은 경우는 큰 문제가 되지 않겠지만, 만약에 몇 만 개 이상의 객체를 만들어야 되고, 그 모든 객체들이 함수를 가지고 있다면 효율성에 문제가 있어지겠죠.
+
+**추천하는 프로토타입 기반의 상속**
+
+지금까지 객체가 다른 객체의 프로토타입을 상속하는 여러가지 방법들을 보셨습니다. 현재 시점에서 객체의 프로토타입(부모)를 지정하는 추천하는 방법은 `[Object.create](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/create)`를 사용하는 것입니다. 
+
+`Object.create`는 지정된 프로토타입을 프로토타입(부모)로 가진 객체를 반환합니다. 
+
+예시를 보시면,
+
+```javascript
+function Student() {
+    
+}
+
+Student.prototype.sayName = function() {
+    console.log(this.name);
+}
+
+function EighthGrader(name) {
+    this.name = name;
+    this.grade = 6;
+}
+
+EighthGrader.prototype = Object.create(Student.prototype);
+
+const chulsoo = new EighthGrader("철수");
+chulsoo.sayName() // "철수"
+chulsoo.grade // 6;
+```
+
+우리는 먼저, `EighthGrader`를 위한 `Student` 라는 생성자를 만든 후, `EighthGrader`의 프로토타입을 `Student.prototype`의 복사본으로 지정하였습니다.
+
+참고로, 이렇게 하시면 안됩니다.
+
+```javascript
+EighthGrader.prototype = Student.prototype;
+```
+
+왜냐하면, `EighthGrader.prototype`이 말 그대로 `Student.prototype`이 될 것이기 때문입니다. 복사본이 아니라요. 이렇게 하면 나중에 문제가 될 수 있습니다.
+
+예를 들면,
+
+```javascript
+function Student() {
+
+}
+
+Student.prototype.sayName = function() {
+  console.log(this.name);
+}
+
+function EighthGrader(name) {
+  this.name = name;
+  this.grade = 6;
+}
+
+// 주의: 하지마세요!!
+EighthGrader.prototype = Student.prototype;
+
+function NinthGrader(name) {
+  this.name = name
+  this.grade = 9
+}
+
+// 안돼요~~!
+NinthGrader.prototype = Student.prototype;
+
+NinthGrader.prototype.sayName = function() {
+    console.log("하하하하하");
+}
+
+const chulsoo = new EighthGrader("철수");
+chulsoo.sayName();
+```
+
+우리가 `EighthGrader.prototype`과 `NinthGrader.prototype`을 `Student.prototype`과 똑같게 만들어 버렸기 때문에, `NinthGrader.prototype`의 `sayName` 메쏘드를 코치는 것이 `Student.prototype`의 `sayName` 메쏘드를 고치는 것과 똑같은 현상이 발생하기 됩니다. 그러면, 문제가 되겠죠?
