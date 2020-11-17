@@ -119,3 +119,97 @@ const myObject = new Object();
 **노트**: ECMAScript5 부터 `Object.create()` 라는 메쏘드를 사용하여 새로운 객체를 생성할 수도 있습니다. 다른 글에서 이것을 한 번 다루겠습니다.
 
 ## 프로토타입은 왜 중요하고 언제 사용될까?
+
+앞에서 이야기 하였듯이, 자바스크립트에서 프로토타입이 사용되는 법에는 2가지가 있습니다.
+
+1. **프로토타입 프로퍼티: 프로토타입 기반 상속**
+
+자바스크립트는 원래 클래스를 기반으로 한 상속이 없었습니다. 그래서 자바스크립트 안에서의 모든 상속은 프로토타입 프로퍼티를 통해서 이루어졌습니다. 자바스크립트는 프로토타입 기반의 상속을 가지고 있습니다. 상속이란 객체가 다른 객체로부터 메쏘드와 프로퍼티를 받는 것을 얘기합니다. 자바스크립트에서는, 여러분은 프로토타입 프로퍼티를 통해 상속을 합니다. 
+
+밑의 예시를 한 번 볼게요.
+
+```javascript
+function Plant() {
+    this.country = "미국";
+    this.isOrganic = true;
+}
+
+// 'showNameAndColor' 메쏘드를 'Plant'의 프로토타입 프로퍼티에 추가해줍니다.
+Plant.prototype.showNameAndColor =  function () {
+    console.log(`저는 ${this.name}이고, 제 색깔은 ${this.color}입니다.`)
+}
+
+// 'amIOrganice' 메쏘드를 'Plant'의 프로토타입 프로퍼티에 추가해줍니다.
+Plant.prototype.amIOrganic = function () {
+if (this.isOrganic)
+    console.log("전 유기농이에요!");
+}
+
+function Fruit (fruitName, fruitColor) {
+    this.name = fruitName;
+    this.color = fruitColor;
+}
+
+// 'Fruit.prototype'의 프로토타입(부모)을 'Plant' 생성자로 지정합니다. 그리하여 'Plant'의 프로토타입 프로퍼티와 메쏘드들을 상속합니다. 
+Fruit.prototype = new Plant ();
+
+// 'aBanana' 라는 객체를 'Fruit' 생성자로 만들어줍니다.
+var aBanana = new Fruit ("바나나", "노란색");
+
+// 'aBanana'가 객체 프로토타입의 'name'을 이용합니다.
+aBanana.name; // Banana
+
+// 'aBanana' 객체는 'Fruit'과 'Plant' 둘 다로부로부터 메쏘드와 프로퍼티들을 상속받습니다.
+aBanana.showNameAndColor(); // 전 유기농이에요!
+```
+
+<!-- 상속에 대한 설명 더 넣기! -->
+
+
+2. **프로토타입 어트리뷰트: 객체의 프로퍼티에 접근하기**
+
+프로토타입은 객체의 프로퍼티와 메쏘드에 접근할 때도 사용됩니다. 아무 객체의 프로토타입 어트리뷰트(프로토타입 객체 or 프로토타입)는 상속된 프로퍼티가 선언된 부모 객체입니다. 예를 쉽게 들면, 여러분의 이름을 생각해볼 수 있습니다. 여러분의 성은 보통 여러분의 아버지로부터 받습니다. 그렇게 여러분의 아버지는 여러분의 '프로토타입'이 될 수 있죠. 만약에 우리가 성이 어디서 왔는지 알아보려하면, 먼저 여러분을 체크하고, 만약에 찾을 수 없었다면, 여러분의 프로토타입인 여러분의 아버지를 체크할 것 입니다. 만약에 여러분의 아버지에서도 찾을 수 없었다면, 할아버지, 증조 할아버지 이런 식으로 계속 올라갑니다.
+
+비슷하게도, 자바스크립트에서 여러분이 객체의 프로퍼티에 접근을 할 때, 보통 여러분이 지정해준 객체에서 부터 검색이 시작됩니다. 만약에 그 곳에서 찾지 못하였다면, 객체의 프로토타입에서 프로퍼티를 찾으려 할 것입니다. 만약에 객체의 프로토타입에서도 찾지 못하였다면, 그 객체의 프로토타입의 프로토타입에서 찾을 것이고, 이런 식으로 똑같이 검색이 계속 될 것입니다. 더 이상의 프로토타입이 없을 때 까지요. 이것이 **프로토타입 체인(Prototype Chain)**의 기본입니다. 자바스크립트는 이 프로토타입 체인을 이용하여 객체의 프로퍼티와 메쏘드를 찾습니다. 만약에 찾을 수 없으면 `undefined`가 반환이 됩니다.
+
+이 프로토타입 체인 개념은 프로토타입 상속과 똑같은 개념입니다. 대신, 우리는 자바스크립트가 어떻게 객체의 프로퍼티와 메쏘드에 접근하는 지에 대해 집중을 하고 있을 뿐이죠.
+
+밑의 예시를 통하여 객체의 프로토타입에 대해서 한 번 알아보겠습니다.
+
+```javascript
+const myFriends = {name: "Chulsoo"};
+
+// myFriends(O)
+myFriends.name; // 'Chulsoo'
+
+// myFriends(X) -> Object.prototype(O)
+myFriends.toString();
+```
+
+`myFriends`라는 객체가 리터럴 객체로 만들어집니다. 그러면 `Object.prototype`의 프로퍼티와 메쏘드를 상속받겠죠. 
+
+`myFriends.name` 에서, `name` 이라는 프로퍼티의 검색을 `myFriends`에서 시작할 것입니다. 그리고 그 곳에 바로 선언이 되어 있기 때문에, 검색을 멈출 것입니다.
+
+하지만 두번째 예시의 `myFriends.toString()` 에서는, 검색을 `myFriends`에서 시작을 하지만, 그 곳에서 찾을 수 없기 때문에 프로토타입인 `Object.prototype` 으로 검색이 넘어갈 것입니다. 그리고 그 곳에서 `toString` 메쏘드를 찾았기 때문에 검색이 멈출 것입니다.
+
+프로토타입 체인의 또 다른 예시입니다.
+
+```javascript
+function People() {
+    this.superstar = "마이클 조던";
+}
+
+People.prototype.athlete = "코비 브라이언트";
+
+const famousPerson = new People();
+
+// 
+famousPerson.superStar; // "마이클 조던"
+
+// famousPerson(X) -> People.prototype(O)
+famousPerson.athlete; // "코비 브라이언트"
+
+// famousPerson(X) -> People.prototype(X) -> Object.prototype(O)
+famousPerson.toString()
+
+```
