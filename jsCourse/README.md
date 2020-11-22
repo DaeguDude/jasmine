@@ -54,7 +54,9 @@
 
 ## Week 11
 
-- [객체와 객체 프로토타입]()
+- [객체의 기본](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week11/README.md)
+
+- [프로토타입](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week11/prototype.md)
 
 ## 추가적인 자료들
 
