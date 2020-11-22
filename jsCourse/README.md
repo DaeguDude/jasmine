@@ -11,11 +11,6 @@
 - [변수](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week1/variable.md)
 - [문자열](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week1/string.md)
 
-### 추가적인 자료들
-
-- [커맨드 라인 기본 명령어](https://www.youtube.com/watch?v=mJMUX5Nia_A&ab_channel=DaeguDude)
-
-
 ## Week2
 
 - [조건문](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week2/conditionals.md)
@@ -57,9 +52,17 @@
 
 - [매직스크린(Etch-a-Sketch) 프로젝트](https://github.com/DaeguDude/jasmine/tree/master/jsCourse/project/etch-a-sketch)
 
-## 프로젝트 pull request 하는 법
+## Week 11
 
-[pull request 하는 법](https://www.youtube.com/watch?v=-WpdlsXTK6k&feature=youtu.be&ab_channel=DaeguDude)
+- [객체와 객체 프로토타입]()
+
+## 추가적인 자료들
+
+- [커맨드 라인 기본 명령어](https://www.youtube.com/watch?v=mJMUX5Nia_A&ab_channel=DaeguDude)
+
+- [pull request 하는 법](https://www.youtube.com/watch?v=-WpdlsXTK6k&feature=youtu.be&ab_channel=DaeguDude)
+
+- [깃허브 페이지에 프로젝트 올리는 법](https://www.youtube.com/watch?v=MhPaI_Arblg&ab_channel=DaeguDude)
 
 ### 유용한 사이트 
 
