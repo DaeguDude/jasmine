@@ -6,7 +6,6 @@
 
 자바스크립트 프로토타입에는 2가지 관련된 개념이 있습니다.
 
-<!-- 글 재확인 -->
 1. **프로토타입 프로퍼티(Prototype Property)**: 모든 자바스크립트 함수는 프로토타입 프로퍼티를 가지고 있습니다. 그리고 이 프로토타입 프로퍼티에 여러분은 메쏘드나 프로퍼티를 추가해 상속을 구현할 수 있습니다. 프로토타입 프로퍼티는 보통 상속에 사용됩니다. 함수의 프로토타입 프로퍼티에 함수나 프로퍼티를 붙여 함수의 인스턴스(instance)에서 사용할 수 있게 하여줍니다.
 
 밑의 예시를 한 번 볼게요.
@@ -16,15 +15,18 @@ function PrintStuff (myDocuments) {
     this.documents = myDocuments;
 }
 
-// 우리는 `print`라는 함수를 `PrintStuff` 프로토타입 프로퍼티에 추가시켜서 함수의 인스턴스들이 이것을 사용할 수 있게 해줄겁니다.
+// 우리는 `print`라는 함수를 `PrintStuff` 프로토타입 프로퍼티에 추가시켜서 함수의
+// 인스턴스들이 이것을 사용할 수 있게 해줄겁니다.
 PrintStuff.prototype.print = function () {
     console.log(this.documents);
 }
 
-// 'PrintStuff' 생성자를 사용하여 새로운 객체를 만듭니다. 이렇게 하면 만들어진 객체가 'PrintStuff'의 프로퍼티와 메쏘드를 상속합니다.
+// 'PrintStuff' 생성자를 사용하여 새로운 객체를 만듭니다. 이렇게 하면 만들어진 객체가
+// 'PrintStuff'의 프로퍼티와 메쏘드를 상속합니다.
 var newObj = new PrintStuff ("난 새로운 객체고 print함수를 쓸 수 있어");
 
-// 'newObj'가 모든 `PrintStuff` 함수로부터 'print' 메쏘드를 포함한 프로퍼티와 모든 메쏘드를 상속합니다. 여러분은 이제 newObj 객체에서 'print' 함수를 쓰실 수 있습니다.
+// 'newObj'가 모든 `PrintStuff` 함수로부터 'print' 메쏘드를 포함한 프로퍼티와 모든 메쏘드를 
+// 상속합니다. 여러분은 이제 newObj 객체에서 'print' 함수를 쓰실 수 있습니다.
 newObj.print(); // 난 새로운 객체고 print함수를 쓸 수 있어
 ```
 
@@ -62,10 +64,12 @@ myStudent.constructor; // Student() {}
 생성자 얘기는 잠깐 접어두고 다시 프로토타입 어트리뷰트로 돌아와보죠. `new Object()`나 리터럴 객체(`{}`)로 만들어진 모든 객체들은 `Object.prototype`으로 부터 상속을 받습니다. 그래서, `Object.prototype`은 이렇게 만들어진 모든 객체들의 프로토타입 어트리뷰트(부모)입니다. 참고로 `Object.prototype`은 그 어떤 것으로부터도 상속을 받지 않습니다.
 
 ```javascript
-// 'student' 객체는 'Object'로부터 상속을 받습니다. 그래서 'student'의 프로토타입 어트리뷰트(부모)는 'Object.prototype'입니다.
+// 'student' 객체는 'Object'로부터 상속을 받습니다. 그래서 'student'의 프로토타입
+// 어트리뷰트(부모)는 'Object.prototype'입니다.
 const student = new Object();
 
-// 'teacher' 객체도 객체 리터럴('{}')로 만들어졌기 때문에 Object로부터 상속을 받습니다 그리하여 'teacher'의 프로토타입 어트리뷰트(부모)도 'Object.prototype' 입니다.
+// 'teacher' 객체도 객체 리터럴('{}')로 만들어졌기 때문에 Object로부터 상속을 받습니다 
+// 그리하여 'teacher'의 프로토타입 어트리뷰트(부모)도 'Object.prototype' 입니다.
 const teacher = { name: "Chulsoo" }
 ```
 
@@ -82,7 +86,8 @@ function Student() {
 }
 
 const myStudent = new Student();
-// 'myStudent' 객체는  'Student'라는 생성자로 인해 생성되었기 때문에, 'myStudent'의 프로토타입은 'Student.prototype'입니다.
+// 'myStudent' 객체는  'Student'라는 생성자로 인해 생성되었기 때문에,
+// 'myStudent'의 프로토타입은 'Student.prototype'입니다.
 ```
 
 새로운 배열을 만들 때 쓰이는 `Array()` 생성자도 똑같습니다. `Array()` 생성자로 만들어지는 모든 객체들은 `Array.prototype`의 프로퍼티와 메쏘드를 상속받을 것입니다.
@@ -149,7 +154,8 @@ function Fruit (fruitName, fruitColor) {
     this.color = fruitColor;
 }
 
-// 'Fruit.prototype'의 프로토타입(부모)을 'Plant' 생성자로 지정합니다. 그리하여 'Plant'의 프로토타입 프로퍼티와 메쏘드들을 상속합니다. 
+// 'Fruit.prototype'의 프로토타입(부모)을 'Plant' 생성자로 지정합니다. 
+// 그리하여 'Plant'의 프로토타입 프로퍼티와 메쏘드들을 상속합니다. 
 Fruit.prototype = new Plant ();
 
 // 'aBanana' 라는 객체를 'Fruit' 생성자로 만들어줍니다.
