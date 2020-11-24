@@ -1,19 +1,5 @@
 # 객체 기본 & 생성자 - (11주차)
 
-<!-- 
-- 객체 101
-- 짧은 리뷰ㅎ
-  - object literal
-  - Bracket Notation & Dot Notation
-- Object as a Design Pattern
-- Object Constructor
-- Exercise
-
-- Prototype
-- 추천하는 상속방법
-
- -->
-
 ## 객체 소개
 
 객체는 자바스크립트에 있어서 아주 중요한 부분입니다. 간단하고 쉬운 프로그래밍은 객체를 사용하지 않고 코드를 작성할 수 있겠지만 실제 규모가 있는 프로젝트에서는 객체를 무조건적으로 사용하게 될 것입니다. 자바스크립트에서 객체를 사용하는 것은 아주 쉽게 어려워질 수 있습니다. 그러므로, 일단 기본적인 것들을 먼저 배워보겠습니다.
@@ -159,3 +145,4 @@ harryPotter.sayInfo(); // 'Half-Blood Prince by J.K. Rowling, 607 pages, not rea
 팁: 함수에서 `console.log`를 쓰는 것보다 `return`을 쓰는 것이 항상 좋은 선택입니다. 그러니 위의 상황에서는 이렇게 사용하시면 되겠죠.
 
 `console.log(harryPotter.info());`
+
