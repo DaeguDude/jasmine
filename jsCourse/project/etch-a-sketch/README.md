@@ -76,5 +76,6 @@
 Pull Request를 이용하시어 여러분의 프로젝트를 여기에 올려주세요.
 
 - [상학 Etch-a-Sketch](https://github.com/DaeguDude/Etch-a-Sketch-TOP) - [라이브로 보기](https://daegudude.github.io/Etch-a-Sketch-TOP/)
+- [정환 Etch-a-Sketch](https://github.com/spark-o-petit/etch-a-sketch) - [라이브로 보기](https://spark-o-petit.github.io/etch-a-sketch/)
 
 
