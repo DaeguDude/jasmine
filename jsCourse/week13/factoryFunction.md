@@ -106,6 +106,10 @@ console.log({name, age, phoneNumber, favoriteFood});
 // {name: "Chuljin", age: "27", phoneNumber: "01012345678", favoriteFood: "rice"}
 ```
 
+## 연습문제
+
+객체를 반환하는 팩토리 함수를 작성해보세요.
+
 ## 비공개 변수와 함수들
 
 앞에서 배운 스코프와 클로져에 대해 다 기억이 나시는가요? 만약에 잘 이해가 안되신다면 더 읽기 전에 [스코프](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week12/scope.md)와 [클로져](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week12/closure.md)의 개념을 한 번 더 보시는 것을 추천드립니다. 비공개 변수와 함수를 이해하기 위해서는 스코프와 클로져에 대한 개념이 있어야 하기 때문이죠.
@@ -289,4 +293,7 @@ const GoodTeacher = (name) => {
 }
 ```
 
+## 연습문제
+
+팩토리 함수 패턴을 이용하여 상속을 하여보세요.
 
