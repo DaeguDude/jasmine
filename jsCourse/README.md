@@ -58,6 +58,19 @@
 
 - [프로토타입](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week11/prototype.md)
 
+## Week 12
+
+- [스코프](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week12/scope.md)
+
+- [클로져](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week12/closure.md)
+
+## Week 13
+
+- [팩토리 함수](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week13/factoryFunction.md)
+
+- [모듈(즉시실행함수)](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week13/module.md)
+
+
 ## 추가적인 자료들
 
 - [커맨드 라인 기본 명령어](https://www.youtube.com/watch?v=mJMUX5Nia_A&ab_channel=DaeguDude)
