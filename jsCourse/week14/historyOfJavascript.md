@@ -348,7 +348,6 @@ $ ./node_modules/.bin/webpack
 그렇다면 npm 스크립트를 이용해 webpack을 조금 더 쉽게 사용하여 보죠. 어렵게 들릴 수 있겠지만 사실 `package.json` 파일을 아주 간단하게 바꾸어 주면 됩니다.
 
 ```json
-// package.json
 {
   "name": "historyjs",
   "version": "1.0.0",
@@ -356,7 +355,6 @@ $ ./node_modules/.bin/webpack
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    // 새로 추가해주세요
     "build": "webpack --progress --mode=production",
     "watch": "webpack --progress --watch"
   },
@@ -449,7 +447,6 @@ module.exports = {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress --mode=production",
     "watch": "webpack --progress --watch",
-    // 새로 추가하세요
     "server": "webpack serve"
   },
   "author": "",

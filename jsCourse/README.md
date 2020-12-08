@@ -70,6 +70,10 @@
 
 - [모듈(즉시실행함수)](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week13/module.md)
 
+## Week 14
+
+- [자바스크립트의 역사](https://github.com/DaeguDude/jasmine/blob/master/jsCourse/week14/historyOfJavascript.md)
+
 
 ## 추가적인 자료들
 
